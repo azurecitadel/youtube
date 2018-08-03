@@ -1,0 +1,120 @@
+1
+00:00:00,030 --> 00:00:05,460
+OK, let's add a storage account
+
+2
+00:00:02,790 --> 00:00:07,020
+resource into this empty template. 
+
+3
+00:00:05,460 --> 00:00:08,519
+Move the cursor down inbetween the
+
+4
+00:00:07,020 --> 00:00:10,110
+square brackets which denotes the
+
+5
+00:00:08,519 --> 00:00:12,750
+resources array.  (You can obviously have
+
+6
+00:00:10,110 --> 00:00:14,219
+multiple resources within a template.)
+
+7
+00:00:12,750 --> 00:00:16,529
+Hit enter, it will drop down a line and
+
+8
+00:00:14,219 --> 00:00:21,210
+automatically indent neatly for us.
+
+9
+00:00:16,529 --> 00:00:22,500
+If you then type in "arm-stg" then that
+
+10
+00:00:21,210 --> 00:00:24,750
+will bring up the storage account
+
+11
+00:00:22,500 --> 00:00:26,820
+snippet. It automatically highlights
+
+12
+00:00:24,750 --> 00:00:28,830
+"storageAccount1" which is used both
+
+13
+00:00:26,820 --> 00:00:30,359
+for the name and for our displayName tag
+
+14
+00:00:28,830 --> 00:00:33,510
+which is a bit superfluous but we'll keep
+
+15
+00:00:30,359 --> 00:00:36,300
+it in there. I want you to replace this with
+
+16
+00:00:33,510 --> 00:00:38,610
+something which is unique for you.
+
+17
+00:00:36,300 --> 00:00:40,350
+I'm going to put in my alias and then
+
+18
+00:00:38,610 --> 00:00:42,719
+"stgacct" afterwards. This needs to be
+
+19
+00:00:40,350 --> 00:00:45,090
+globally unique as this forms part of the
+
+20
+00:00:42,719 --> 00:00:49,289
+FQDN, the fully qualified domain name,
+
+21
+00:00:45,090 --> 00:00:52,710
+which is used to access the various HTTPS
+
+22
+00:00:49,289 --> 00:00:55,469
+endpoints for blob, for file, for table,
+
+23
+00:00:52,710 --> 00:00:56,850
+for queue, and therefore it needs to be
+
+24
+00:00:55,469 --> 00:00:58,320
+globally unique. So enter in your
+
+25
+00:00:56,850 --> 00:00:59,460
+storage account name so it's unique.  Maybe add
+
+26
+00:00:58,320 --> 00:01:01,379
+a few numbers at the end to make
+
+27
+00:00:59,460 --> 00:01:03,769
+sure. The naming conventions for that can
+
+28
+00:01:01,379 --> 00:01:07,560
+be between 3 and 24 characters and
+
+29
+00:01:03,769 --> 00:01:10,939
+alphanumeric, all lowercase. Once you're
+
+30
+00:01:07,560 --> 00:01:10,939
+done, CTRL+S to save.
+

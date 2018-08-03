@@ -1,0 +1,100 @@
+1
+00:00:01,159 --> 00:00:05,069
+OK, so if you've got everything set up
+
+2
+00:00:03,270 --> 00:00:07,770
+then this should be how your screen
+
+3
+00:00:05,069 --> 00:00:09,750
+currently looks. If you hover over the
+
+4
+00:00:07,770 --> 00:00:11,700
+ARM-WORKSHOP bar and click on the new
+
+5
+00:00:09,750 --> 00:00:13,920
+file icon - you can do CTRL+N as well if
+
+6
+00:00:11,700 --> 00:00:18,690
+you prefer - and then type in 
+
+7
+00:00:13,920 --> 00:00:20,130
+"lab1/azuredeploy.json".  It will
+
+8
+00:00:18,690 --> 00:00:22,140
+create the file and the folder at the
+
+9
+00:00:20,130 --> 00:00:23,460
+same time and you can see it's focused
+
+10
+00:00:22,140 --> 00:00:26,279
+automatically on the pane on the right
+
+11
+00:00:23,460 --> 00:00:28,289
+hand side. If you type "arm!"
+
+12
+00:00:26,279 --> 00:00:30,750
+at that point then it will
+
+13
+00:00:28,289 --> 00:00:32,009
+select the skeleton template from the ARM
+
+14
+00:00:30,750 --> 00:00:34,200
+snippets. If you don't see the ARM
+
+15
+00:00:32,009 --> 00:00:35,790
+snippets then double check everything you've done
+
+16
+00:00:34,200 --> 00:00:37,410
+for the set up. You should have a
+
+17
+00:00:35,790 --> 00:00:40,610
+snippets file which you imported at some
+
+18
+00:00:37,410 --> 00:00:43,950
+point which you'll find down here within
+
+19
+00:00:40,610 --> 00:00:45,960
+Settings and User Snippets.  If it
+
+20
+00:00:43,950 --> 00:00:48,210
+does work then when you hit enter you should
+
+21
+00:00:45,960 --> 00:00:49,530
+see the default template come in. You'll
+
+22
+00:00:48,210 --> 00:00:51,899
+notice there's a round dot which
+
+23
+00:00:49,530 --> 00:00:54,570
+shows there's unsaved changes, up on the
+
+24
+00:00:51,899 --> 00:00:59,690
+tab.  If I do CTRL+S that will then save it,
+
+25
+00:00:54,570 --> 00:00:59,690
+now we have saved the changes.  Ready to go.
+

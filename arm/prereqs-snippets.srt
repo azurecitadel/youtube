@@ -4,7 +4,7 @@ Let's add the snippets into
 
 2
 00:00:02,840 --> 00:00:09,630
-Visual Studio Code. If you open up these
+Visual Studio Code. If you open up this
 
 3
 00:00:06,240 --> 00:00:12,900
@@ -80,7 +80,7 @@ and then we can paste the contents of
 
 21
 00:00:49,800 --> 00:00:54,570
-the snippets into there now I'm just
+the snippets into there. Now I'm just
 
 22
 00:00:51,719 --> 00:00:56,610
@@ -148,7 +148,7 @@ close it down. Right, to test that
 
 38
 00:01:25,049 --> 00:01:30,780
-everything's working tyep CTRL+M and that will
+everything's working type CTRL+N and that will
 
 39
 00:01:28,259 --> 00:01:32,400
@@ -188,11 +188,11 @@ point then you should see this list of
 
 48
 00:01:53,490 --> 00:01:58,110
-snippets come up as soon as you do that
+snippets come up as soon as you do that.
 
 49
 00:01:55,890 --> 00:02:00,090
-and if I pick the top one which is the
+If I pick the top one which is the
 
 50
 00:01:58,110 --> 00:02:02,640
