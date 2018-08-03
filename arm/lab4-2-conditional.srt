@@ -1,0 +1,888 @@
+1
+00:00:00,860 --> 00:00:05,609
+The work we're going to do during lab 4 is
+
+2
+00:00:03,659 --> 00:00:07,200
+a continuation of what we started in lab
+
+3
+00:00:05,609 --> 00:00:08,130
+3 so I'll be copying forward that
+
+4
+00:00:07,200 --> 00:00:09,870
+directory in a minute.
+
+5
+00:00:08,130 --> 00:00:12,480
+That'll be the same at the end of this
+
+6
+00:00:09,870 --> 00:00:15,210
+lab as well, as we move into the Copies
+
+7
+00:00:12,480 --> 00:00:16,410
+in lab 5 that'll be an extension of the
+
+8
+00:00:15,210 --> 00:00:18,000
+work we've done in this one, so you'll do the
+
+9
+00:00:16,410 --> 00:00:19,590
+same again at the end of this lab.
+
+10
+00:00:18,000 --> 00:00:21,240
+Let's show you how that's done.  If I
+
+11
+00:00:19,590 --> 00:00:23,789
+highlight lab 3 and then do CTRL+C, 
+
+12
+00:00:21,240 --> 00:00:25,439
+CTRL+V to copy and paste it then you
+
+13
+00:00:23,789 --> 00:00:27,480
+can see it's pasted it in as lab 4. 
+
+14
+00:00:25,439 --> 00:00:29,849
+It increments the number for us. 
+
+15
+00:00:27,480 --> 00:00:31,260
+Right, let's look at the azuredeploy.json.
+
+16
+00:00:29,849 --> 00:00:32,700
+Now what we're going to do within this is
+
+17
+00:00:31,260 --> 00:00:34,559
+we're going to make the public IP
+
+18
+00:00:32,700 --> 00:00:37,020
+address creation - so you can see that's
+
+19
+00:00:34,559 --> 00:00:38,820
+one of the resources we have within this -
+
+20
+00:00:37,020 --> 00:00:41,940
+we're going to make that conditional on
+
+21
+00:00:38,820 --> 00:00:44,250
+whether or not the DNS label prefix has
+
+22
+00:00:41,940 --> 00:00:46,890
+been set.  First thing we're going to do
+
+23
+00:00:44,250 --> 00:00:49,350
+is put in an empty string for that as
+
+24
+00:00:46,890 --> 00:00:51,719
+the default value. 
+
+25
+00:00:49,350 --> 00:00:53,760
+That means that if it's not
+
+26
+00:00:51,719 --> 00:00:55,860
+being specified by the user, 
+
+27
+00:00:53,760 --> 00:00:57,360
+it's going to use an empty string
+
+28
+00:00:55,860 --> 00:00:58,800
+as the default value and then we can use
+
+29
+00:00:57,360 --> 00:01:00,840
+that to control whether or not it gets
+
+30
+00:00:58,800 --> 00:01:03,629
+created. The other change we want to do
+
+31
+00:01:00,840 --> 00:01:05,700
+within this parameters declaration area
+
+32
+00:01:03,629 --> 00:01:07,920
+is remove the default value for the
+
+33
+00:01:05,700 --> 00:01:09,840
+virtual machine.  
+
+34
+00:01:07,920 --> 00:01:11,189
+Save those changes. So that now
+
+35
+00:01:09,840 --> 00:01:13,290
+means that we're using the parameters
+
+36
+00:01:11,189 --> 00:01:15,509
+file for all of the customer specific
+
+37
+00:01:13,290 --> 00:01:18,119
+user information around the admin
+
+38
+00:01:15,509 --> 00:01:20,369
+credentials so they have username and
+
+39
+00:01:18,119 --> 00:01:22,439
+the password secretname we're pulling
+
+40
+00:01:20,369 --> 00:01:24,210
+from the Key Vault, and likewise for the
+
+41
+00:01:22,439 --> 00:01:26,720
+virtual network naming conventions as
+
+42
+00:01:24,210 --> 00:01:29,009
+well. For the submission specific
+
+43
+00:01:26,720 --> 00:01:30,329
+parameters we're going to do those as
+
+44
+00:01:29,009 --> 00:01:31,770
+inline parameters.  Virtual machine name we're
+
+45
+00:01:30,329 --> 00:01:34,079
+always going to specify that as it's now
+
+46
+00:01:31,770 --> 00:01:37,350
+required at submission time and we can
+
+47
+00:01:34,079 --> 00:01:38,579
+optionally use the dnsLabelPrefix to
+
+48
+00:01:37,350 --> 00:01:41,040
+control whether or not we're going to
+
+49
+00:01:38,579 --> 00:01:43,829
+have a public IP address and FQDN created.
+
+50
+00:01:41,040 --> 00:01:47,610
+I'll close down the parameters file.
+
+51
+00:01:43,829 --> 00:01:49,380
+If I close down the parameters section
+
+52
+00:01:47,610 --> 00:01:51,149
+You can use CTRL-SHIFT
+
+53
+00:01:49,380 --> 00:01:55,590
+and use the square brackets "[]".
+
+54
+00:01:51,149 --> 00:01:57,210
+I'm going to do the
+
+55
+00:01:55,590 --> 00:01:58,829
+same for storage accounts because
+
+56
+00:01:57,210 --> 00:02:00,750
+there's no changes to be done there. Let's
+
+57
+00:01:58,829 --> 00:02:02,549
+have a look at the public IP address.
+
+58
+00:02:00,750 --> 00:02:04,829
+I want this whole resource to be
+
+59
+00:02:02,549 --> 00:02:07,890
+conditionally created dependent on
+
+60
+00:02:04,829 --> 00:02:10,470
+whether or not we have anything
+
+61
+00:02:07,890 --> 00:02:12,090
+specified within dnsLabelPrefix.
+
+62
+00:02:10,470 --> 00:02:13,950
+Condition is one of the
+
+63
+00:02:12,090 --> 00:02:15,450
+remaining top-level
+
+64
+00:02:13,950 --> 00:02:17,879
+control words we can use. 
+
+65
+00:02:15,450 --> 00:02:20,010
+The condition is going to
+
+66
+00:02:17,879 --> 00:02:21,720
+want an expression after that which
+
+67
+00:02:20,010 --> 00:02:24,629
+evaluates to either boolean true or
+
+68
+00:02:21,720 --> 00:02:27,090
+false. If you have a look at the 
+
+69
+00:02:24,629 --> 00:02:29,700
+https://aka.ms/armfunc area or the function
+
+70
+00:02:27,090 --> 00:02:31,050
+documentation for ARM templates you'll
+
+71
+00:02:29,700 --> 00:02:32,730
+see there's a number of different
+
+72
+00:02:31,050 --> 00:02:33,630
+functions which return boolean
+
+73
+00:02:32,730 --> 00:02:36,209
+true or false.
+
+74
+00:02:33,630 --> 00:02:39,720
+Including the bool() function itself.
+
+75
+00:02:36,209 --> 00:02:43,620
+We have function like empty(), we
+
+76
+00:02:39,720 --> 00:02:44,790
+have greater(), less(), equals(), so
+
+77
+00:02:43,620 --> 00:02:46,459
+there's a whole host of different
+
+78
+00:02:44,790 --> 00:02:49,170
+functions you can use which return
+
+79
+00:02:46,459 --> 00:02:51,959
+boolean true or false. We're going to be
+
+80
+00:02:49,170 --> 00:02:54,720
+using empty(). 
+
+81
+00:02:51,959 --> 00:02:56,760
+The empty() function basically looks at either
+
+82
+00:02:54,720 --> 00:02:58,140
+a string or an array or an object, and returns
+
+83
+00:02:56,760 --> 00:03:00,870
+true or false dependent on whether it is
+
+84
+00:02:58,140 --> 00:03:06,299
+populated.  We're going to feed that
+
+85
+00:03:00,870 --> 00:03:08,940
+with parameters() and select the 
+
+86
+00:03:06,299 --> 00:03:11,760
+dnsLabelPrefix and close that off so now
+
+87
+00:03:08,940 --> 00:03:14,160
+that's going to return true if dnsLabelPrefix
+
+88
+00:03:11,760 --> 00:03:15,720
+is empty, and false if it isn't.
+
+89
+00:03:14,160 --> 00:03:18,480
+That's actually the reverse of what
+
+90
+00:03:15,720 --> 00:03:21,420
+we want to see so we're going to invert
+
+91
+00:03:18,480 --> 00:03:26,220
+that result by surrounding the expression with the
+
+92
+00:03:21,420 --> 00:03:28,799
+not() function instead.  As it says, not()
+
+93
+00:03:26,220 --> 00:03:30,510
+will take whatever boolean value
+
+94
+00:03:28,799 --> 00:03:33,690
+has been passed into it and give its
+
+95
+00:03:30,510 --> 00:03:35,910
+opposite value instead.  Now if our
+
+96
+00:03:33,690 --> 00:03:37,799
+dnsLabelPrefix is not empty then we're going to
+
+97
+00:03:35,910 --> 00:03:39,180
+create the public IP address. If it is
+
+98
+00:03:37,799 --> 00:03:41,190
+empty then i'm going to skip this whole
+
+99
+00:03:39,180 --> 00:03:44,340
+resource and not creat it.  That's how you
+
+100
+00:03:41,190 --> 00:03:46,620
+use conditions against full resources.
+
+101
+00:03:44,340 --> 00:03:48,780
+OK, I'm going to close down virtual
+
+102
+00:03:46,620 --> 00:03:52,109
+networks because there has nothing
+
+103
+00:03:48,780 --> 00:03:54,269
+within it which is public IP specific so
+
+104
+00:03:52,109 --> 00:03:55,980
+let's shrink that down and let's have a
+
+105
+00:03:54,269 --> 00:03:58,019
+look at the network interfaces instead. 
+
+106
+00:03:55,980 --> 00:03:59,340
+There are two sections within this
+
+107
+00:03:58,019 --> 00:04:02,430
+which we're going to concentrate on.
+
+108
+00:03:59,340 --> 00:04:04,230
+One is the explicit dependencies and as you
+
+109
+00:04:02,430 --> 00:04:05,579
+can see here we have explicit
+
+110
+00:04:04,230 --> 00:04:07,230
+dependencies for both the public IP
+
+111
+00:04:05,579 --> 00:04:09,810
+address resource and also for the
+
+112
+00:04:07,230 --> 00:04:11,609
+virtual network resource. The other
+
+113
+00:04:09,810 --> 00:04:15,060
+section we're going to look at is this
+
+114
+00:04:11,609 --> 00:04:18,030
+public IP address section down here. 
+
+115
+00:04:15,060 --> 00:04:20,720
+Now this, as a property within the 
+
+116
+00:04:18,030 --> 00:04:22,710
+ipConfigurations properties area,
+
+117
+00:04:20,720 --> 00:04:24,150
+is optional in itself.  We have it
+
+118
+00:04:22,710 --> 00:04:27,800
+included because we're using a public IP
+
+119
+00:04:24,150 --> 00:04:29,990
+address, but if we were doing an internal
+
+120
+00:04:27,800 --> 00:04:31,430
+NIC then this section will probably look
+
+121
+00:04:29,990 --> 00:04:33,319
+like that instead. So it wouldn't even
+
+122
+00:04:31,430 --> 00:04:37,340
+include that but one of the things you
+
+123
+00:04:33,319 --> 00:04:40,669
+can do within JSON within the ARM
+
+124
+00:04:37,340 --> 00:04:44,690
+templates is at runtime it will quite
+
+125
+00:04:40,669 --> 00:04:47,270
+happily take that null value. 
+
+126
+00:04:44,690 --> 00:04:48,830
+As it has got a null value for that
+
+127
+00:04:47,270 --> 00:04:50,659
+name value pair it's just going to
+
+128
+00:04:48,830 --> 00:04:52,909
+ignore publicIpAddress and won't
+
+129
+00:04:50,659 --> 00:04:53,960
+include that.
+
+130
+00:04:52,909 --> 00:04:55,849
+Pet's just put that back for a second.  I'm
+
+131
+00:04:53,960 --> 00:04:58,639
+going to take a copy of that block there.
+
+132
+00:04:55,849 --> 00:05:01,930
+We're going to put an if() statement in
+
+133
+00:04:58,639 --> 00:05:04,879
+there instead, saying that if our
+
+134
+00:05:01,930 --> 00:05:07,699
+dnsLabelPrefix is populated we're
+
+135
+00:05:04,879 --> 00:05:10,039
+going to put in that object and if it isn't
+
+136
+00:05:07,699 --> 00:05:12,379
+we're going to put in null. You want to
+
+137
+00:05:10,039 --> 00:05:14,240
+create an object for that in the
+
+138
+00:05:12,379 --> 00:05:18,740
+variables section. I'm not talking about
+
+139
+00:05:14,240 --> 00:05:19,729
+the ID to resourceIs() (name:value) pair that
+
+140
+00:05:18,740 --> 00:05:22,310
+ we've got there, I'm talking about the whole
+
+141
+00:05:19,729 --> 00:05:23,810
+object. We need to include the braces
+
+142
+00:05:22,310 --> 00:05:25,639
+for that so I'm going to copy that
+
+143
+00:05:23,810 --> 00:05:28,310
+whole section there and then we'll go
+
+144
+00:05:25,639 --> 00:05:33,529
+back up to the variables and add in a
+
+145
+00:05:28,310 --> 00:05:35,960
+new pipObject and set the value
+
+146
+00:05:33,529 --> 00:05:38,360
+of that to be the whole of that object
+
+147
+00:05:35,960 --> 00:05:39,620
+so including the curly braces. We're
+
+148
+00:05:38,360 --> 00:05:42,349
+not using that yet which is why it's got
+
+149
+00:05:39,620 --> 00:05:43,759
+a yellow underline warning.
+
+150
+00:05:42,349 --> 00:05:46,400
+Because we're now going to
+
+151
+00:05:43,759 --> 00:05:48,080
+repeat this test here, we might as
+
+152
+00:05:46,400 --> 00:05:50,240
+well make that into a variable as well.
+
+153
+00:05:48,080 --> 00:05:53,150
+Again I'm going to take that whole
+
+154
+00:05:50,240 --> 00:05:56,150
+expression and then we'll create a new
+
+155
+00:05:53,150 --> 00:05:59,120
+boolean variable. Now for boolean
+
+156
+00:05:56,150 --> 00:06:01,120
+variables I quite often use the question
+
+157
+00:05:59,120 --> 00:06:03,349
+mark just to denote that it is a boolean. 
+
+158
+00:06:01,120 --> 00:06:05,180
+Question mark, despite being a special
+
+159
+00:06:03,349 --> 00:06:06,979
+character normally, is permitted within
+
+160
+00:06:05,180 --> 00:06:08,900
+the naming convention so I'm going to
+
+161
+00:06:06,979 --> 00:06:11,240
+leverage that there and then I'll put
+
+162
+00:06:08,900 --> 00:06:13,729
+that expression, followed by a comma.
+
+163
+00:06:11,240 --> 00:06:15,919
+Now our "pip?" boolean is going to
+
+164
+00:06:13,729 --> 00:06:17,690
+be set based on that expression which
+
+165
+00:06:15,919 --> 00:06:21,139
+means that we can now change our
+
+166
+00:06:17,690 --> 00:06:25,460
+condition at the top of the public IP
+
+167
+00:06:21,139 --> 00:06:28,400
+address resource.  Rather than having the
+
+168
+00:06:25,460 --> 00:06:32,060
+whole expression we can now use our
+
+169
+00:06:28,400 --> 00:06:34,129
+variable.  That'll get
+
+170
+00:06:32,060 --> 00:06:35,930
+evaluated into either the
+
+171
+00:06:34,129 --> 00:06:38,630
+boolean true or false value and create
+
+172
+00:06:35,930 --> 00:06:39,090
+that public IP resource depending
+
+173
+00:06:38,630 --> 00:06:41,520
+on that expression evaluation.
+
+174
+00:06:39,090 --> 00:06:43,620
+Now we need to work on this section
+
+175
+00:06:41,520 --> 00:06:46,380
+here.  We need to replace this whole
+
+176
+00:06:43,620 --> 00:06:48,510
+section so again I'm going to take the
+
+177
+00:06:46,380 --> 00:06:51,930
+whole of the object, including the
+
+178
+00:06:48,510 --> 00:06:53,460
+curly braces, and delete that.n
+
+179
+00:06:51,930 --> 00:06:55,500
+we'll start putting in a new expression
+
+180
+00:06:53,460 --> 00:06:59,760
+here.  The function we're going to use
+
+181
+00:06:55,500 --> 00:07:01,260
+is if(), and as it says there 
+
+182
+00:06:59,760 --> 00:07:03,150
+if(condition, true, false). It's got three
+
+183
+00:07:01,260 --> 00:07:06,110
+elements to it so I'm going to put those
+
+184
+00:07:03,150 --> 00:07:09,389
+in just as placeholders so condition,
+
+185
+00:07:06,110 --> 00:07:11,639
+true, false, just so you can see how this
+
+186
+00:07:09,389 --> 00:07:13,979
+gets constructed and then I'll close
+
+187
+00:07:11,639 --> 00:07:16,169
+that off.  Now the condition we're going
+
+188
+00:07:13,979 --> 00:07:24,960
+to use is the same as we used at the top
+
+189
+00:07:16,169 --> 00:07:30,120
+of the PIP resource, so if our "pip?"
+
+190
+00:07:24,960 --> 00:07:33,479
+boolean is true or false and find out
+
+191
+00:07:30,120 --> 00:07:34,800
+whether or not we create it.  If it
+
+192
+00:07:33,479 --> 00:07:37,440
+returns true then we want to put in that
+
+193
+00:07:34,800 --> 00:07:40,350
+pipObject.   Use CTRL+SPACE
+
+194
+00:07:37,440 --> 00:07:47,130
+to pull up the list and put in
+
+195
+00:07:40,350 --> 00:07:51,330
+variables, and add in the
+
+196
+00:07:47,130 --> 00:07:52,620
+object. If it's false we want to put
+
+197
+00:07:51,330 --> 00:07:54,240
+in null.  We want to put in the null
+
+198
+00:07:52,620 --> 00:07:55,380
+JSON object.  You can't just type in
+
+199
+00:07:54,240 --> 00:07:56,220
+null at this point because that will not
+
+200
+00:07:55,380 --> 00:07:58,410
+be accepted.
+
+201
+00:07:56,220 --> 00:08:00,570
+And you can't put null in single quotes
+
+202
+00:07:58,410 --> 00:08:02,460
+because that will be a literal string.
+
+203
+00:08:00,570 --> 00:08:05,490
+The way that you put in null so it gets
+
+204
+00:08:02,460 --> 00:08:09,840
+accepted properly is by using the json()
+
+205
+00:08:05,490 --> 00:08:11,490
+function.  So json() as a function
+
+206
+00:08:09,840 --> 00:08:12,720
+takes one argument, and
+
+207
+00:08:11,490 --> 00:08:14,190
+you can feed it JSON as string - 
+
+208
+00:08:12,720 --> 00:08:15,539
+you have to escape speech marks and
+
+209
+00:08:14,190 --> 00:08:18,180
+things like that  - and it will then
+
+210
+00:08:15,539 --> 00:08:22,139
+convert that into a JSON object.  
+
+211
+00:08:18,180 --> 00:08:24,300
+We can add in single quotes surrounding
+
+212
+00:08:22,139 --> 00:08:26,880
+null and that'll be accepted. I'll just
+
+213
+00:08:24,300 --> 00:08:28,710
+close with a bracket so it matches up.  That
+
+214
+00:08:26,880 --> 00:08:30,750
+is a valid if() statement against that
+
+215
+00:08:28,710 --> 00:08:32,130
+public IP address. A couple of things
+
+216
+00:08:30,750 --> 00:08:34,709
+to bear in mind. We need the pip object
+
+217
+00:08:32,130 --> 00:08:36,089
+we'll need the pip boolean and then we
+
+218
+00:08:34,709 --> 00:08:37,919
+can use it within that section. That
+
+219
+00:08:36,089 --> 00:08:40,700
+is the easiest way to control how you
+
+220
+00:08:37,919 --> 00:08:43,979
+construct different sections of your
+
+221
+00:08:40,700 --> 00:08:47,390
+properties within a resource. Save the
+
+222
+00:08:43,979 --> 00:08:47,390
+file and let's try some submitting it.
+

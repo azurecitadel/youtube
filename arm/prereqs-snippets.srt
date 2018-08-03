@@ -1,0 +1,212 @@
+1
+00:00:00,260 --> 00:00:06,240
+Let's add the snippets into
+
+2
+00:00:02,840 --> 00:00:09,630
+Visual Studio Code. If you open up these
+
+3
+00:00:06,240 --> 00:00:12,900
+snippets file -  so this is provided by Sam
+
+4
+00:00:09,630 --> 00:00:15,599
+Cogan -  and do CTRL-A and CTR-C to
+
+5
+00:00:12,900 --> 00:00:17,940
+copy the contents from that file and then go
+
+6
+00:00:15,599 --> 00:00:19,560
+to vscode.  You can go through the file menu
+
+7
+00:00:17,940 --> 00:00:21,600
+to get to the User Snippet if you want.
+
+8
+00:00:19,560 --> 00:00:24,060
+File -> Preferences -> User Snippets.
+
+9
+00:00:21,600 --> 00:00:27,330
+The quickest way is to use the Settings cog
+
+10
+00:00:24,060 --> 00:00:29,820
+and then choose User Snippets from there
+
+11
+00:00:27,330 --> 00:00:31,769
+and if you search for json.json in
+
+12
+00:00:29,820 --> 00:00:33,420
+the list to open.
+
+13
+00:00:31,769 --> 00:00:35,010
+This is the default file.
+
+14
+00:00:33,420 --> 00:00:37,020
+You can see this one is empty, it's just
+
+15
+00:00:35,010 --> 00:00:40,649
+got the opening and closing brace, top and
+
+16
+00:00:37,020 --> 00:00:42,180
+bottom, and then some comments which are
+
+17
+00:00:40,649 --> 00:00:44,820
+slightly outside of the JSON standard.
+
+18
+00:00:42,180 --> 00:00:46,530
+If I hit enter where the cursor is now
+
+19
+00:00:44,820 --> 00:00:49,800
+I'll take it down within that section
+
+20
+00:00:46,530 --> 00:00:51,719
+and then we can paste the contents of
+
+21
+00:00:49,800 --> 00:00:54,570
+the snippets into there now I'm just
+
+22
+00:00:51,719 --> 00:00:56,610
+going to do CTRL+SHIFT+M to show any
+
+23
+00:00:54,570 --> 00:00:57,690
+errors and there's a pull request 
+
+24
+00:00:56,610 --> 00:00:59,070
+against these at the moment because
+
+25
+00:00:57,690 --> 00:01:01,980
+there's a missing comma in the file.
+
+26
+00:00:59,070 --> 00:01:03,899
+You can see that if I put one here
+
+27
+00:01:01,980 --> 00:01:05,760
+I'll get rid of that red line against 
+
+28
+00:01:03,899 --> 00:01:08,100
+dependsOn and then it's syntactically
+
+29
+00:01:05,760 --> 00:01:10,460
+good. If you've got Eric Lynd's
+
+30
+00:01:08,100 --> 00:01:13,020
+JSON tools you can do CTRL+ALT+M
+
+31
+00:01:10,460 --> 00:01:15,390
+against the whole file and that will
+
+32
+00:01:13,020 --> 00:01:18,299
+just slightly tidy up everything within
+
+33
+00:01:15,390 --> 00:01:19,830
+it. Save the file (CTRL+S).
+
+34
+00:01:18,299 --> 00:01:22,080
+As you can see it's got the little round
+
+35
+00:01:19,830 --> 00:01:23,189
+dot to show it's got unsaved changes. 
+
+36
+00:01:22,080 --> 00:01:25,049
+Save the file and you can
+
+37
+00:01:23,189 --> 00:01:28,259
+close it down. Right, to test that
+
+38
+00:01:25,049 --> 00:01:30,780
+everything's working tyep CTRL+M and that will
+
+39
+00:01:28,259 --> 00:01:32,400
+create a new file.  We'll call it test.json.
+
+40
+00:01:30,780 --> 00:01:36,930
+I'm just going to put this
+
+41
+00:01:32,400 --> 00:01:43,500
+straight into my downloads folder and name it
+
+42
+00:01:36,930 --> 00:01:46,470
+test.json and by doing that it will it'll
+
+43
+00:01:43,500 --> 00:01:47,759
+automatically know it's a JSON file at
+
+44
+00:01:46,470 --> 00:01:48,630
+the bottom right here, which means it's
+
+45
+00:01:47,759 --> 00:01:50,909
+going to start picking up on the
+
+46
+00:01:48,630 --> 00:01:53,490
+snippets.  If I type "arm" at this
+
+47
+00:01:50,909 --> 00:01:55,890
+point then you should see this list of
+
+48
+00:01:53,490 --> 00:01:58,110
+snippets come up as soon as you do that
+
+49
+00:01:55,890 --> 00:02:00,090
+and if I pick the top one which is the
+
+50
+00:01:58,110 --> 00:02:02,640
+skeleton arm template, hit enter at that
+
+51
+00:02:00,090 --> 00:02:04,229
+point and then do CTRL+S to save those
+
+52
+00:02:02,640 --> 00:02:07,610
+changes.  That is our default ARM
+
+53
+00:02:04,229 --> 00:02:07,610
+template and our snippets are working.
+
