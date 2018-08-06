@@ -1,3 +1,3 @@
 https://youtu.be/x6rCyE7TDr4
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/x6rCyE7TDr4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/x6rCyE7TDr4?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
