@@ -1,0 +1,236 @@
+1
+00:00:00,439 --> 00:00:06,660
+We're now going to create a template
+
+2
+00:00:03,990 --> 00:00:09,090
+by exporting something out of the Azure
+
+3
+00:00:06,660 --> 00:00:10,349
+portal. This is a very common thing to do
+
+4
+00:00:09,090 --> 00:00:12,090
+if you're dealing with new resources,
+
+5
+00:00:10,349 --> 00:00:13,230
+and they show up in the portal
+
+6
+00:00:12,090 --> 00:00:14,250
+and you then want to be able to do
+
+7
+00:00:13,230 --> 00:00:15,960
+those programmatically.
+
+8
+00:00:14,250 --> 00:00:17,699
+We're going to do that by clicking on
+
+9
+00:00:15,960 --> 00:00:21,439
+create resource and we're going to do a
+
+10
+00:00:17,699 --> 00:00:26,220
+Web App here and so I select the Web App
+
+11
+00:00:21,439 --> 00:00:27,689
+and then once the details come up then
+
+12
+00:00:26,220 --> 00:00:28,859
+we will start going through. We're not
+
+13
+00:00:27,689 --> 00:00:29,789
+going to click on this blue Create
+
+14
+00:00:28,859 --> 00:00:31,859
+button, we're going to look at the
+
+15
+00:00:29,789 --> 00:00:34,320
+automation options down here. Let's just
+
+16
+00:00:31,859 --> 00:00:37,440
+put these details in. I'm going to put
+
+17
+00:00:34,320 --> 00:00:40,680
+a name for my web apps, "richeneyarm".
+
+18
+00:00:37,440 --> 00:00:43,200
+I'm also going to put it into a
+
+19
+00:00:40,680 --> 00:00:45,360
+new resource group called lab2.
+
+20
+00:00:43,200 --> 00:00:47,489
+
+
+21
+00:00:45,360 --> 00:00:49,140
+I'm going to choose my App Service Plan,
+
+22
+00:00:47,489 --> 00:00:50,879
+I want to put this on the Free tier,
+
+23
+00:00:49,140 --> 00:00:53,820
+and hard-code this to that Free tier.
+
+24
+00:00:50,879 --> 00:00:56,850
+I'm going to create new and then
+
+25
+00:00:53,820 --> 00:01:01,370
+within that I can specify the location
+
+26
+00:00:56,850 --> 00:01:01,370
+which I'm going to put into West Europe.
+
+27
+00:01:01,550 --> 00:01:07,920
+Service plan I'll name "richeneyarm-plan".
+
+28
+00:01:04,530 --> 00:01:11,490
+We're going to change the tier.
+
+29
+00:01:07,920 --> 00:01:12,750
+There's the new dialog box for this.
+
+30
+00:01:11,490 --> 00:01:15,960
+We're going to change that
+
+31
+00:01:12,750 --> 00:01:20,280
+to dev / test and then choose
+
+32
+00:01:15,960 --> 00:01:21,990
+the free tier and apply OK.
+
+33
+00:01:20,280 --> 00:01:24,930
+We're now on the Free tier with the F1 size. 
+
+34
+00:01:21,990 --> 00:01:27,030
+Click OK that should then take that
+
+35
+00:01:24,930 --> 00:01:29,130
+through. 
+
+36
+00:01:27,030 --> 00:01:31,890
+Rather than click Create,
+
+37
+00:01:29,130 --> 00:01:35,340
+go into automation options.
+
+38
+00:01:31,890 --> 00:01:37,259
+This automatically generates JSON files
+
+39
+00:01:35,340 --> 00:01:39,630
+for both the parameter file and
+
+40
+00:01:37,259 --> 00:01:41,280
+template file which gives us a useful
+
+41
+00:01:39,630 --> 00:01:42,869
+starting point for taking these and then
+
+42
+00:01:41,280 --> 00:01:44,939
+customizing. That's what we want to do so
+
+43
+00:01:42,869 --> 00:01:47,909
+if I click into the area for the main
+
+44
+00:01:44,939 --> 00:01:50,640
+pane and do CTRL-A and CTRL-C to copy
+
+45
+00:01:47,909 --> 00:01:54,090
+the contents of that, I can then click
+
+46
+00:01:50,640 --> 00:01:57,390
+back over to our Visual Studio Code area.
+
+47
+00:01:54,090 --> 00:02:01,189
+Then if I create a new file,
+
+48
+00:01:57,390 --> 00:02:05,850
+called "lab2/azuredeploy.json",
+
+49
+00:02:01,189 --> 00:02:08,910
+then I can paste the contents into
+
+50
+00:02:05,850 --> 00:02:11,160
+there.  And save the file.
+
+51
+00:02:08,910 --> 00:02:11,700
+Create a new file 
+
+52
+00:02:11,160 --> 00:02:13,410
+that is called
+
+53
+00:02:11,700 --> 00:02:18,060
+azuredeploy.parameters.json.
+
+54
+00:02:13,410 --> 00:02:21,230
+
+
+55
+00:02:18,060 --> 00:02:25,500
+And then when we go back we can select
+
+56
+00:02:21,230 --> 00:02:28,020
+parameters file, take the contents of that
+
+57
+00:02:25,500 --> 00:02:29,280
+and paste that in, and that gives us the
+
+58
+00:02:28,020 --> 00:02:31,700
+two files ready for us to start
+
+59
+00:02:29,280 --> 00:02:31,700
+customizing.
+

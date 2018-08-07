@@ -1,0 +1,192 @@
+1
+00:00:01,010 --> 00:00:05,549
+OK, so we're going to create a resource
+
+2
+00:00:04,200 --> 00:00:07,680
+group on the command line and then
+
+3
+00:00:05,549 --> 00:00:09,630
+deploy our small template into that
+
+4
+00:00:07,680 --> 00:00:10,650
+resource group. Some of the commands can
+
+5
+00:00:09,630 --> 00:00:14,549
+get quite long so I'm going to use
+
+6
+00:00:10,650 --> 00:00:15,870
+CTRL+B to toggle the sidebar and then
+
+7
+00:00:14,549 --> 00:00:17,970
+you can see we're in the arm-workshop
+
+8
+00:00:15,870 --> 00:00:20,939
+directory. I'm going to move down into
+
+9
+00:00:17,970 --> 00:00:22,710
+the lab1 folder which is where the
+
+10
+00:00:20,939 --> 00:00:25,920
+azuredeploy.json file actually
+
+11
+00:00:22,710 --> 00:00:27,029
+sits. Just 'clear' that to tidy that up. I'm
+
+12
+00:00:25,920 --> 00:00:31,109
+now going to create the resource
+
+13
+00:00:27,029 --> 00:00:32,579
+group so 'az group create' then the name
+
+14
+00:00:31,109 --> 00:00:35,850
+of our resource group which will be
+
+15
+00:00:32,579 --> 00:00:38,780
+lab1 and then location-wise put that into West
+
+16
+00:00:35,850 --> 00:00:41,100
+Europe as we will do all the resources.
+
+17
+00:00:38,780 --> 00:00:42,800
+That'll take a second or two to go
+
+18
+00:00:41,100 --> 00:00:44,969
+through. If you find yourself
+
+19
+00:00:42,800 --> 00:00:46,860
+persistently deploying into the same
+
+20
+00:00:44,969 --> 00:00:48,539
+location and you want to shorten some of
+
+21
+00:00:46,860 --> 00:00:49,680
+the command line arguments you're using
+
+22
+00:00:48,539 --> 00:00:51,960
+personally (rather than something
+
+23
+00:00:49,680 --> 00:00:53,070
+scripted) then have a look at `'az configure'
+
+24
+00:00:51,960 --> 00:00:55,649
+because then you can set that as a
+
+25
+00:00:53,070 --> 00:00:57,140
+default within that. OK, so now we've got
+
+26
+00:00:55,649 --> 00:01:02,309
+our resource group I'm going to do an
+
+27
+00:00:57,140 --> 00:01:05,100
+'az group deployment create' and then I'm going
+
+28
+00:01:02,309 --> 00:01:06,600
+to give this a name of job one. This is the
+
+29
+00:01:05,100 --> 00:01:07,860
+name of the deployment job you'll see in
+
+30
+00:01:06,600 --> 00:01:10,500
+the resource group when we have a look
+
+31
+00:01:07,860 --> 00:01:13,770
+in the portal later on.  If you don't
+
+32
+00:01:10,500 --> 00:01:16,530
+specify a name for the job it will just
+
+33
+00:01:13,770 --> 00:01:18,630
+take it from the basename of the file that we're
+
+34
+00:01:16,530 --> 00:01:19,860
+using. So ours is called azuredeploy.json,
+
+35
+00:01:18,630 --> 00:01:21,780
+it'll be called azuredeploy,
+
+36
+00:01:19,860 --> 00:01:24,990
+deployed but we're going to specify our
+
+37
+00:01:21,780 --> 00:01:27,900
+jobname here. I'm going to select
+
+38
+00:01:24,990 --> 00:01:29,729
+the azuredeploy.json file that we have
+
+39
+00:01:27,900 --> 00:01:32,850
+in this folder. I'm just using the
+
+40
+00:01:29,729 --> 00:01:35,130
+autocomplete for that, and then the
+
+41
+00:01:32,850 --> 00:01:39,750
+resource group are going to submit into
+
+42
+00:01:35,130 --> 00:01:42,960
+which is lab1. I hit enter there then
+
+43
+00:01:39,750 --> 00:01:45,600
+it should take a look at that file,
+
+44
+00:01:42,960 --> 00:01:47,520
+validate it and then submit it through
+
+45
+00:01:45,600 --> 00:01:49,590
+the ARM layer and show that it's running
+
+46
+00:01:47,520 --> 00:01:52,439
+at this point. If we then give that
+
+47
+00:01:49,590 --> 00:01:55,430
+about 30 seconds then it will come up
+
+48
+00:01:52,439 --> 00:01:55,430
+with something that's completed.
+

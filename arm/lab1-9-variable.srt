@@ -1,0 +1,624 @@
+1
+00:00:00,030 --> 00:00:04,049
+OK, so our template is now a bit more
+
+2
+00:00:02,310 --> 00:00:06,839
+functional and we can specify a couple of
+
+3
+00:00:04,049 --> 00:00:08,820
+parameters.  But it does rely on the user
+
+4
+00:00:06,839 --> 00:00:10,650
+specifying a storageAccount name which
+
+5
+00:00:08,820 --> 00:00:12,750
+turns out to be globally unique which is
+
+6
+00:00:10,650 --> 00:00:15,030
+probably a bit of a big ask. We're
+
+7
+00:00:12,750 --> 00:00:17,400
+going to change this a little bit from a
+
+8
+00:00:15,030 --> 00:00:18,779
+parameter to a variable, where we're
+
+9
+00:00:17,400 --> 00:00:20,520
+going to take a prefix which the user
+
+10
+00:00:18,779 --> 00:00:22,380
+can specify (but we'll have a default in
+
+11
+00:00:20,520 --> 00:00:24,539
+there) and then we're going to append
+
+12
+00:00:22,380 --> 00:00:27,390
+some characters to that to give it a
+
+13
+00:00:24,539 --> 00:00:29,460
+good chance of being unique. Now, if you
+
+14
+00:00:27,390 --> 00:00:32,189
+remember, the actual storage account
+
+15
+00:00:29,460 --> 00:00:34,350
+name needs to be between 3 and 24
+
+16
+00:00:32,189 --> 00:00:36,510
+characters, must be lowercase, and can
+
+17
+00:00:34,350 --> 00:00:40,320
+only include alphanumerics, so it's quite
+
+18
+00:00:36,510 --> 00:00:41,670
+specific as to what's allowed.
+
+19
+00:00:40,320 --> 00:00:43,800
+Let's start making some of these changes.
+
+20
+00:00:41,670 --> 00:00:45,270
+In the parameter section I'm going to
+
+21
+00:00:43,800 --> 00:00:49,590
+turn that from storageAccount to
+
+22
+00:00:45,270 --> 00:00:54,570
+storageAccountPrefix, and include that
+
+23
+00:00:49,590 --> 00:00:58,109
+there and in terms of description "Prefix
+
+24
+00:00:54,570 --> 00:01:00,300
+for the storage account name". 
+
+25
+00:00:58,109 --> 00:01:05,040
+
+
+26
+00:01:00,300 --> 00:01:10,320
+We're going to create storageAccount
+
+27
+00:01:05,040 --> 00:01:12,180
+as a variable and we could just
+
+28
+00:01:10,320 --> 00:01:16,020
+have that directly mapped onto
+
+29
+00:01:12,180 --> 00:01:18,090
+parameters and then storageAccountPrefix
+
+30
+00:01:16,020 --> 00:01:20,009
+(which is now popping up there) so that
+
+31
+00:01:18,090 --> 00:01:21,659
+would be a 1:1 for that.  But what we
+
+32
+00:01:20,009 --> 00:01:24,869
+want to do is concatenate
+
+33
+00:01:21,659 --> 00:01:26,549
+a uniqueString() on the back end of
+
+34
+00:01:24,869 --> 00:01:28,770
+this and then we want to make sure it
+
+35
+00:01:26,549 --> 00:01:29,820
+is in lowercase and finally we're
+
+36
+00:01:28,770 --> 00:01:31,590
+going to make sure it doesn't come in
+
+37
+00:01:29,820 --> 00:01:33,840
+too long. Let's have a quick look at
+
+38
+00:01:31,590 --> 00:01:38,689
+some of the functions you can use. If you go
+
+39
+00:01:33,840 --> 00:01:41,159
+into the address bar and https://aka.ms/armfunc
+
+40
+00:01:38,689 --> 00:01:45,299
+then that'll take you straight
+
+41
+00:01:41,159 --> 00:01:48,090
+through to the ARM functions area.
+
+42
+00:01:45,299 --> 00:01:49,380
+
+
+43
+00:01:48,090 --> 00:01:51,000
+We'll be doing a couple of string functions.
+
+44
+00:01:49,380 --> 00:01:52,920
+There's number of different
+
+45
+00:01:51,000 --> 00:01:54,299
+function areas so you can do numerics,
+
+46
+00:01:52,920 --> 00:01:56,700
+there's information about the current
+
+47
+00:01:54,299 --> 00:01:58,049
+deployment or existing resources, some
+
+48
+00:01:56,700 --> 00:01:59,670
+comparison ones that we'll touch on
+
+49
+00:01:58,049 --> 00:02:01,710
+later in the labs around conditional
+
+50
+00:01:59,670 --> 00:02:04,259
+deployments, and also some more complex
+
+51
+00:02:01,710 --> 00:02:06,479
+functions for arrays and objects. Here
+
+52
+00:02:04,259 --> 00:02:08,099
+we're going to use a few which are quite
+
+53
+00:02:06,479 --> 00:02:10,979
+commonly used. And concat() is one of the
+
+54
+00:02:08,099 --> 00:02:12,629
+ones which is very commonly used so that
+
+55
+00:02:10,979 --> 00:02:13,890
+enables you to take multiple strings and
+
+56
+00:02:12,629 --> 00:02:15,960
+join them together.
+
+57
+00:02:13,890 --> 00:02:17,970
+We'll also be using toLower() which
+
+58
+00:02:15,960 --> 00:02:21,900
+lowercases, and finally we'll be using
+
+59
+00:02:17,970 --> 00:02:23,940
+uniqueString(). Now uniqueString is a
+
+60
+00:02:21,900 --> 00:02:25,650
+little bit badly named in that it
+
+61
+00:02:23,940 --> 00:02:27,959
+doesn't always create a unique string. It
+
+62
+00:02:25,650 --> 00:02:30,060
+will always create a hashed variable, as it
+
+63
+00:02:27,959 --> 00:02:32,040
+says deterministic, based on what you
+
+64
+00:02:30,060 --> 00:02:33,480
+seed it with.  So if you give it the same
+
+65
+00:02:32,040 --> 00:02:34,920
+seed it will give you the same hash
+
+66
+00:02:33,480 --> 00:02:37,620
+result each and every time which is
+
+67
+00:02:34,920 --> 00:02:38,970
+actually very useful to us.  Let's go
+
+68
+00:02:37,620 --> 00:02:40,200
+back and start putting some of these
+
+69
+00:02:38,970 --> 00:02:41,959
+things together so we can see how the
+
+70
+00:02:40,200 --> 00:02:44,520
+nesting looks. I'm going to get rid of
+
+71
+00:02:41,959 --> 00:02:49,709
+the argument I've got there.
+
+72
+00:02:44,520 --> 00:02:52,680
+
+
+73
+00:02:49,709 --> 00:02:56,310
+The first one I'm
+
+74
+00:02:52,680 --> 00:02:58,590
+going to put together is to have the 
+
+75
+00:02:56,310 --> 00:03:00,480
+toLower.  OK, so we're going to make sure
+
+76
+00:02:58,590 --> 00:03:01,650
+everything's lowered after it.  And I put
+
+77
+00:03:00,480 --> 00:03:03,360
+the square bracket after it just to
+
+78
+00:03:01,650 --> 00:03:05,400
+finish that off.  Now a little hint if you
+
+79
+00:03:03,360 --> 00:03:07,500
+want to keep having the Intellisense
+
+80
+00:03:05,400 --> 00:03:09,300
+come up, do a double space, and then move
+
+81
+00:03:07,500 --> 00:03:11,840
+the cursor back in between the two spaces
+
+82
+00:03:09,300 --> 00:03:15,410
+and then if you do something like concat()
+
+83
+00:03:11,840 --> 00:03:18,690
+then it'll come up.
+
+84
+00:03:15,410 --> 00:03:20,970
+(Or you can use CTRL+SPACE.)
+
+85
+00:03:18,690 --> 00:03:24,840
+Our first value is going to be our
+
+86
+00:03:20,970 --> 00:03:27,720
+parameter for storageAccountPrefix and
+
+87
+00:03:24,840 --> 00:03:30,060
+then we're going to put a suffix string
+
+88
+00:03:27,720 --> 00:03:32,579
+after that.  So let me just put 'suffix' in
+
+89
+00:03:30,060 --> 00:03:39,840
+as a string at the moment.
+
+90
+00:03:32,579 --> 00:03:42,140
+We can see that it's
+
+91
+00:03:39,840 --> 00:03:44,670
+going to be accepted as a function
+
+92
+00:03:42,140 --> 00:03:47,040
+expression. OK, so now we're going to
+
+93
+00:03:44,670 --> 00:03:49,829
+replace suffix.  Rather than being a
+
+94
+00:03:47,040 --> 00:03:53,250
+string like that we're going to have the
+
+95
+00:03:49,829 --> 00:03:54,600
+uniqueString() function.
+
+96
+00:03:53,250 --> 00:03:56,519
+If I hover over that function
+
+97
+00:03:54,600 --> 00:03:58,380
+you'll see that it takes at least one
+
+98
+00:03:56,519 --> 00:03:59,579
+argument.  All of the functions are very
+
+99
+00:03:58,380 --> 00:04:00,120
+useful in that you can hover over the
+
+100
+00:03:59,579 --> 00:04:01,680
+top of them
+
+101
+00:04:00,120 --> 00:04:02,970
+and it will just give a description as
+
+102
+00:04:01,680 --> 00:04:05,160
+to what it needs and what it's going to
+
+103
+00:04:02,970 --> 00:04:07,530
+do. So with uniqueString() we're going to
+
+104
+00:04:05,160 --> 00:04:09,900
+provide it with something to make it
+
+105
+00:04:07,530 --> 00:04:11,820
+vaguely unique. Now for us we just want
+
+106
+00:04:09,900 --> 00:04:13,530
+to make sure that we have a storage
+
+107
+00:04:11,820 --> 00:04:17,130
+account within this specific resource
+
+108
+00:04:13,530 --> 00:04:19,320
+group and so on that basis what we're
+
+109
+00:04:17,130 --> 00:04:22,380
+going to do is going to use the 
+
+110
+00:04:19,320 --> 00:04:24,180
+rewsourceGroup) function. Now resourceGroup() is a
+
+111
+00:04:22,380 --> 00:04:27,930
+function that returns an object which has a
+
+112
+00:04:24,180 --> 00:04:31,259
+number of sub-properties: ID, location, name
+
+113
+00:04:27,930 --> 00:04:33,750
+and properties,  Wwe just need to use the
+
+114
+00:04:31,259 --> 00:04:36,030
+ID, so take ID and tap that in as well,
+
+115
+00:04:33,750 --> 00:04:38,960
+and now we have a function which is
+
+116
+00:04:36,030 --> 00:04:42,360
+going to seed the uniqueString with
+
+117
+00:04:38,960 --> 00:04:44,850
+resource group ID.  
+
+118
+00:04:42,360 --> 00:04:46,620
+That'll give us a 13 character code.
+
+119
+00:04:44,850 --> 00:04:48,210
+I'm going to prefix that with
+
+120
+00:04:46,620 --> 00:04:49,710
+our storage account prefix and then
+
+121
+00:04:48,210 --> 00:04:53,669
+lowercase everything.  That's all in
+
+122
+00:04:49,710 --> 00:04:55,229
+place.   If I remove the spaces we don't
+
+123
+00:04:53,669 --> 00:05:00,289
+need just to shorten the argument a
+
+124
+00:04:55,229 --> 00:05:04,970
+little bit then that will tidy that up.
+
+125
+00:05:00,289 --> 00:05:04,970
+This is more complex than any other
+
+126
+00:05:05,810 --> 00:05:10,110
+expression that you're likely to put in,
+
+127
+00:05:07,770 --> 00:05:11,970
+using this many functions, unless you're doing
+
+128
+00:05:10,110 --> 00:05:14,970
+some really complicated stuff based on
+
+129
+00:05:11,970 --> 00:05:16,260
+conditionals later on but it's good
+
+130
+00:05:14,970 --> 00:05:17,820
+practice just so you can see how things
+
+131
+00:05:16,260 --> 00:05:19,530
+are nested and how you can pull those in
+
+132
+00:05:17,820 --> 00:05:22,530
+quickly. The other thing I'm going to add
+
+133
+00:05:19,530 --> 00:05:25,740
+in is a default for our storage crowd
+
+134
+00:05:22,530 --> 00:05:35,699
+prefix.  I'm going to put "richeneystg"
+
+135
+00:05:25,740 --> 00:05:38,789
+as my default value.
+
+136
+00:05:35,699 --> 00:05:40,680
+
+
+137
+00:05:38,789 --> 00:05:44,010
+The other thing I'm going to put in
+
+138
+00:05:40,680 --> 00:05:47,280
+is I'm going to put in a maxLength as
+
+139
+00:05:44,010 --> 00:05:48,960
+well. This will take a integer value.
+
+140
+00:05:47,280 --> 00:05:51,120
+Because we know the uniqueString() is
+
+141
+00:05:48,960 --> 00:05:53,430
+going to return 13 characters, and the
+
+142
+00:05:51,120 --> 00:05:55,590
+maximum length for storage account name is 24
+
+143
+00:05:53,430 --> 00:05:57,300
+then really the max length I want my
+
+144
+00:05:55,590 --> 00:06:00,659
+users to be able to put in, if they
+
+145
+00:05:57,300 --> 00:06:02,190
+override this default, is 11 so that'll
+
+146
+00:06:00,659 --> 00:06:04,979
+make sure we never exceed that 24
+
+147
+00:06:02,190 --> 00:06:07,500
+characters.  OK, so we're done. As you can
+
+148
+00:06:04,979 --> 00:06:10,349
+see the last thing to do is that 
+
+149
+00:06:07,500 --> 00:06:13,530
+storageAccount is never used. We're using
+
+150
+00:06:10,349 --> 00:06:15,030
+parameters rather than the variables so
+
+151
+00:06:13,530 --> 00:06:18,449
+we need to create that. If I just type
+
+152
+00:06:15,030 --> 00:06:21,810
+in variables there and for our display
+
+153
+00:06:18,449 --> 00:06:24,500
+name there. 
+
+154
+00:06:21,810 --> 00:06:27,240
+We should no longer have any issues with
+
+155
+00:06:24,500 --> 00:06:30,560
+this workspace.  So I'll save that file and
+
+156
+00:06:27,240 --> 00:06:30,560
+that's ready to submit.
+

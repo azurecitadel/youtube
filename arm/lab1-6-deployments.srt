@@ -1,0 +1,140 @@
+1
+00:00:00,560 --> 00:00:05,580
+I've opened up the portal and
+
+2
+00:00:03,330 --> 00:00:06,750
+navigated into the lab1 resource group.
+
+3
+00:00:05,580 --> 00:00:09,179
+As you can see we've got our
+
+4
+00:00:06,750 --> 00:00:11,280
+storage account.
+
+5
+00:00:09,179 --> 00:00:13,049
+Click on deployments in the blade
+
+6
+00:00:11,280 --> 00:00:15,240
+on the left hand side to show the
+
+7
+00:00:13,049 --> 00:00:16,800
+deployment jobs and you'll see job1
+
+8
+00:00:15,240 --> 00:00:19,410
+has been listed there. Click on
+
+9
+00:00:16,800 --> 00:00:20,850
+job1 then it will open up and you can
+
+10
+00:00:19,410 --> 00:00:22,230
+see the overview listing the
+
+11
+00:00:20,850 --> 00:00:23,640
+various resources it's deployed.
+
+12
+00:00:22,230 --> 00:00:26,070
+Just the simple storage account for us.
+
+13
+00:00:23,640 --> 00:00:27,300
+
+
+14
+00:00:26,070 --> 00:00:28,560
+You can look at what that template
+
+15
+00:00:27,300 --> 00:00:31,019
+looked like at that submission point in
+
+16
+00:00:28,560 --> 00:00:33,210
+time. If you are structured in your
+
+17
+00:00:31,019 --> 00:00:34,980
+naming conventions for your
+
+18
+00:00:33,210 --> 00:00:36,989
+deployment jobs then you can always go
+
+19
+00:00:34,980 --> 00:00:38,700
+back and see what's that looked like.
+
+20
+00:00:36,989 --> 00:00:40,710
+It automatically creates a parameters
+
+21
+00:00:38,700 --> 00:00:42,750
+file at the same time,
+
+22
+00:00:40,710 --> 00:00:44,460
+and it's got some example CLI and
+
+23
+00:00:42,750 --> 00:00:46,379
+PowerShell scripts you can use to call
+
+24
+00:00:44,460 --> 00:00:49,110
+the templates as well as some .NET and
+
+25
+00:00:46,379 --> 00:00:51,719
+Ruby SDK information. We can see we have
+
+26
+00:00:49,110 --> 00:00:53,100
+no inputs, plus we have no outputs. We'll
+
+27
+00:00:51,719 --> 00:00:55,350
+have some of those when we go through
+
+28
+00:00:53,100 --> 00:00:56,730
+things later on but that's essentially
+
+29
+00:00:55,350 --> 00:00:58,649
+the information you get when you are
+
+30
+00:00:56,730 --> 00:00:59,940
+looking via the portal.
+
+31
+00:00:58,649 --> 00:01:02,370
+If you're using either the
+
+32
+00:00:59,940 --> 00:01:05,640
+PowerShell AzureRM cmdlets or you're
+
+33
+00:01:02,370 --> 00:01:06,450
+using the CLI 2.0 az commands you can
+
+34
+00:01:05,640 --> 00:01:09,409
+get to that same information
+
+35
+00:01:06,450 --> 00:01:09,409
+programmatically.
+

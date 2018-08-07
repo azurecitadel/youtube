@@ -1,0 +1,228 @@
+1
+00:00:00,860 --> 00:00:05,549
+Now we're nicely generating a
+
+2
+00:00:03,570 --> 00:00:08,269
+more unique storage account name using
+
+3
+00:00:05,549 --> 00:00:10,889
+our variable expression.
+
+4
+00:00:08,269 --> 00:00:13,200
+It would be useful to have that output
+
+5
+00:00:10,889 --> 00:00:14,639
+from the deployment so we know
+
+6
+00:00:13,200 --> 00:00:16,470
+which name has been created for our
+
+7
+00:00:14,639 --> 00:00:19,230
+storage account. You can do this
+
+8
+00:00:16,470 --> 00:00:21,029
+within the output section.
+
+9
+00:00:19,230 --> 00:00:23,970
+Move the cursor so it's between the
+
+10
+00:00:21,029 --> 00:00:26,220
+two curly braces and then hit enter.
+
+11
+00:00:23,970 --> 00:00:28,769
+It'll drop down and indent and then you
+
+12
+00:00:26,220 --> 00:00:30,359
+can give a name for your output.
+
+13
+00:00:28,769 --> 00:00:33,149
+I'm not going to be very inventive.
+
+14
+00:00:30,359 --> 00:00:36,739
+It's called storage account and 
+
+15
+00:00:33,149 --> 00:00:39,870
+takes an object itself.  So if I
+
+16
+00:00:36,739 --> 00:00:41,340
+hit enter to drop down within that.
+
+17
+00:00:39,870 --> 00:00:43,559
+It has a couple of properties.
+
+18
+00:00:41,340 --> 00:00:46,350
+One is "type" and the other's "value".
+
+19
+00:00:43,559 --> 00:00:47,700
+If I tab over from "type" it allows
+
+20
+00:00:46,350 --> 00:00:49,440
+a number of different values, that is the 
+
+21
+00:00:47,700 --> 00:00:51,629
+list of possible values. 
+
+22
+00:00:49,440 --> 00:00:54,329
+I'll select "string" and
+
+23
+00:00:51,629 --> 00:00:57,449
+tab it over, then do comma to go down
+
+24
+00:00:54,329 --> 00:00:59,640
+to the next line. 
+
+25
+00:00:57,449 --> 00:01:02,879
+The "value" is our last remaining property.
+
+26
+00:00:59,640 --> 00:01:05,450
+Add in the "[variables('storageAccount')]". 
+
+27
+00:01:02,879 --> 00:01:08,610
+
+
+28
+00:01:05,450 --> 00:01:10,110
+Single quote then storageAccount
+
+29
+00:01:08,610 --> 00:01:12,090
+is automatically populated for
+
+30
+00:01:10,110 --> 00:01:15,270
+us and then do square bracket to close
+
+31
+00:01:12,090 --> 00:01:17,930
+it off. That's another valid
+
+32
+00:01:15,270 --> 00:01:22,710
+template with no problems (using CTRL+SHIFT+M).
+
+33
+00:01:17,930 --> 00:01:24,659
+I can save it now. If you find
+
+34
+00:01:22,710 --> 00:01:26,580
+that for some reason your indentation has
+
+35
+00:01:24,659 --> 00:01:28,470
+gone a bit messy then one of the
+
+36
+00:01:26,580 --> 00:01:31,079
+nice things you can use is the JSON
+
+37
+00:01:28,470 --> 00:01:35,340
+Tools which has been provided as one of
+
+38
+00:01:31,079 --> 00:01:38,369
+the extensions. That was put in by
+
+39
+00:01:35,340 --> 00:01:42,270
+Eric Lynd and I've got that installed.
+
+40
+00:01:38,369 --> 00:01:44,939
+That enables you to do two things.
+
+41
+00:01:42,270 --> 00:01:46,799
+One, you can do ALT+M together to minify
+
+42
+00:01:44,939 --> 00:01:48,990
+everything, which can be very useful if
+
+43
+00:01:46,799 --> 00:01:51,180
+you are doing program code and you want
+
+44
+00:01:48,990 --> 00:01:53,579
+to shrink something down.
+
+45
+00:01:51,180 --> 00:01:55,619
+Or you can do CTRL+ALT+M and that'll prettify
+
+46
+00:01:53,579 --> 00:01:58,020
+it, expanding it out and based on your spaces
+
+47
+00:01:55,619 --> 00:01:59,520
+(setting) for your tabbing, it'll indent it
+
+48
+00:01:58,020 --> 00:02:00,659
+and then put all the nice little lines and
+
+49
+00:01:59,520 --> 00:02:02,310
+everything else so everything is where
+
+50
+00:02:00,659 --> 00:02:05,969
+it should be. That will only work if
+
+51
+00:02:02,310 --> 00:02:07,439
+your JSON is syntactically good, so
+
+52
+00:02:05,969 --> 00:02:09,179
+you'll need to fix any syntax errors
+
+53
+00:02:07,439 --> 00:02:11,280
+first before we can use those. It's a
+
+54
+00:02:09,179 --> 00:02:13,140
+great way of tidying up your templates
+
+55
+00:02:11,280 --> 00:02:13,860
+if you've managed to get yourself into a little bit
+
+56
+00:02:13,140 --> 00:02:16,730
+of an
+
+57
+00:02:13,860 --> 00:02:16,730
+indentation mess.
+

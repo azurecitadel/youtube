@@ -1,0 +1,148 @@
+1
+00:00:00,319 --> 00:00:03,689
+Before we can create a resource group
+
+2
+00:00:02,340 --> 00:00:05,970
+and submit the template into it, we need
+
+3
+00:00:03,689 --> 00:00:07,259
+to log in to Azure.  The good news is once
+
+4
+00:00:05,970 --> 00:00:11,550
+you've logged into Azure then you'll be
+
+5
+00:00:07,259 --> 00:00:13,349
+logged in for about a week.  If you do
+
+6
+00:00:11,550 --> 00:00:15,450
+CTRL+' or go through
+
+7
+00:00:13,349 --> 00:00:17,490
+View and then Integrated Terminal
+
+8
+00:00:15,450 --> 00:00:18,750
+then this will pop up. This is the Bash
+
+9
+00:00:17,490 --> 00:00:20,820
+version, you may want to set up the
+
+10
+00:00:18,750 --> 00:00:23,130
+PowerShell version. I'm going to type
+
+11
+00:00:20,820 --> 00:00:25,199
+in 'az login'.  I've already logged myself out
+
+12
+00:00:23,130 --> 00:00:27,269
+to go through this process again.  Now
+
+13
+00:00:25,199 --> 00:00:29,609
+this should automatically open up a
+
+14
+00:00:27,269 --> 00:00:31,529
+window with the code - it's a bit
+
+15
+00:00:29,609 --> 00:00:33,149
+slicker than it used to be - and then you go
+
+16
+00:00:31,529 --> 00:00:36,390
+through the credential process, which for
+
+17
+00:00:33,149 --> 00:00:38,040
+me is just clicking on that, and then
+
+18
+00:00:36,390 --> 00:00:39,420
+it will authenticate you using
+
+19
+00:00:38,040 --> 00:00:42,059
+multi-factor authentication if need be
+
+20
+00:00:39,420 --> 00:00:44,010
+and get you logged in.  Now if like me you
+
+21
+00:00:42,059 --> 00:00:48,539
+have multiple subscriptions then you can
+
+22
+00:00:44,010 --> 00:00:50,370
+do 'az account list'. I'm going to do that in
+
+23
+00:00:48,539 --> 00:00:53,489
+the table format rather than the coloured
+
+24
+00:00:50,370 --> 00:00:55,860
+JSON (jsonc) you see there. That'll
+
+25
+00:00:53,489 --> 00:00:58,050
+list out my multiple subscriptions. I'm
+
+26
+00:00:55,860 --> 00:01:02,300
+going to pick this one here, take that
+
+27
+00:00:58,050 --> 00:01:05,159
+code, and then if I do 'az account set
+
+28
+00:01:02,300 --> 00:01:09,780
+--subscription' and then paste in that
+
+29
+00:01:05,159 --> 00:01:12,600
+subscription GUID and that should show
+
+30
+00:01:09,780 --> 00:01:13,860
+the right one.  You can always show at any
+
+31
+00:01:12,600 --> 00:01:16,140
+point to which one you're in, your
+
+32
+00:01:13,860 --> 00:01:17,970
+context, if you do 'ad account show' and
+
+33
+00:01:16,140 --> 00:01:21,030
+that'll show you which subscription you're
+
+34
+00:01:17,970 --> 00:01:24,000
+in and also whether or not you're a person or if
+
+35
+00:01:21,030 --> 00:01:25,170
+you're a Managed Service Identity (MSI) or if you
+
+36
+00:01:24,000 --> 00:01:29,689
+are logging in using the Service Principal (SP)
+
+37
+00:01:25,170 --> 00:01:29,689
+but for most of you, you''ll be a user.
+

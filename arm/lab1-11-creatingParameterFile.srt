@@ -1,0 +1,408 @@
+1
+00:00:00,380 --> 00:00:04,740
+In this lab you have entered
+
+2
+00:00:03,060 --> 00:00:06,990
+parameters in a couple of different
+
+3
+00:00:04,740 --> 00:00:10,110
+ways.  You've been prompted for the values
+
+4
+00:00:06,990 --> 00:00:12,330
+interactively if it is a required
+
+5
+00:00:10,110 --> 00:00:14,610
+parameter and you haven't specified at
+
+6
+00:00:12,330 --> 00:00:17,490
+any point. That's at submission time
+
+7
+00:00:14,610 --> 00:00:20,070
+using the CLIs. The other place
+
+8
+00:00:17,490 --> 00:00:22,289
+is specifying the values inline. 
+
+9
+00:00:20,070 --> 00:00:24,300
+PowerShell creates those additional
+
+10
+00:00:22,289 --> 00:00:26,310
+switches on the fly based on the name of
+
+11
+00:00:24,300 --> 00:00:28,320
+those parameters, which is why you can't
+
+12
+00:00:26,310 --> 00:00:30,300
+have parameters in your templates for
+
+13
+00:00:28,320 --> 00:00:34,410
+PowerShell which conflict with any
+
+14
+00:00:30,300 --> 00:00:36,120
+existing names such as "name".  For the
+
+15
+00:00:34,410 --> 00:00:39,030
+CLI you've got a couple of options there
+
+16
+00:00:36,120 --> 00:00:42,300
+either specifying JSON or you can
+
+17
+00:00:39,030 --> 00:00:45,510
+specify name=value pairs in
+
+18
+00:00:42,300 --> 00:00:47,460
+a space delimited list. What we're going
+
+19
+00:00:45,510 --> 00:00:49,110
+to do now is going to create a parameter
+
+20
+00:00:47,460 --> 00:00:51,230
+file and this is very useful
+
+21
+00:00:49,110 --> 00:00:54,690
+particularly if you have multiple
+
+22
+00:00:51,230 --> 00:00:56,309
+customers or partners and you want to
+
+23
+00:00:54,690 --> 00:00:59,039
+specify a different parameter file for
+
+24
+00:00:56,309 --> 00:01:01,829
+information specific to that particular
+
+25
+00:00:59,039 --> 00:01:03,960
+customer. 
+
+26
+00:01:01,829 --> 00:01:06,150
+We're going to create a new file.
+
+27
+00:01:03,960 --> 00:01:08,939
+
+
+28
+00:01:06,150 --> 00:01:10,799
+In our lab1 folder I'm going to create a
+
+29
+00:01:08,939 --> 00:01:14,880
+new file and that's going to be called
+
+30
+00:01:10,799 --> 00:01:16,500
+azuredeploy.parameters.json.  You can
+
+31
+00:01:14,880 --> 00:01:19,530
+call it anything you like but this is the
+
+32
+00:01:16,500 --> 00:01:23,159
+convention. As you can see that's
+
+33
+00:01:19,530 --> 00:01:25,200
+opened it at the top. Now you can use
+
+34
+00:01:23,159 --> 00:01:26,820
+CTGRL+ALT+LEFT and RIGHT to move
+
+35
+00:01:25,200 --> 00:01:27,860
+these around.
+
+36
+00:01:26,820 --> 00:01:30,780
+Or you can drag and drop and snap them now
+
+37
+00:01:27,860 --> 00:01:32,579
+using vscode. The files are now side by
+
+38
+00:01:30,780 --> 00:01:34,290
+side. I'm also going to do CTRL+B to
+
+39
+00:01:32,579 --> 00:01:36,570
+close down the sidebar and give ourselves a bit
+
+40
+00:01:34,290 --> 00:01:38,610
+of space. 
+
+41
+00:01:36,570 --> 00:01:40,710
+I can see which parameters we have there.
+
+42
+00:01:38,610 --> 00:01:45,689
+Now I've got focus within the parameters.json
+
+43
+00:01:40,710 --> 00:01:47,369
+ file and if I type "armp" then it
+
+44
+00:01:45,689 --> 00:01:49,920
+should automatically show the skeleton
+
+45
+00:01:47,369 --> 00:01:52,890
+for the parameters. Notice this has a
+
+46
+00:01:49,920 --> 00:01:55,290
+different schema compared to the main
+
+47
+00:01:52,890 --> 00:01:56,790
+azuredeploy.json. It's very limited in
+
+48
+00:01:55,290 --> 00:01:58,079
+what it can have. It just has a parameter
+
+49
+00:01:56,790 --> 00:01:59,939
+section as well as the schema and
+
+50
+00:01:58,079 --> 00:02:01,619
+content version. The parameter
+
+51
+00:01:59,939 --> 00:02:03,390
+section itself is also fairly limited as to
+
+52
+00:02:01,619 --> 00:02:06,210
+what it can have. I'm going to enter in
+
+53
+00:02:03,390 --> 00:02:09,000
+two parameters here. Again, type "armp",
+
+54
+00:02:06,210 --> 00:02:10,890
+but this time rather than choosing skeleton, or 
+
+55
+00:02:09,000 --> 00:02:12,629
+arm-parameter, which is what we used in the
+
+56
+00:02:10,890 --> 00:02:13,140
+main azuredeploy.json when we're actually
+
+57
+00:02:12,629 --> 00:02:15,060
+declaring our parameters,
+
+58
+00:02:13,140 --> 00:02:17,610
+we're now going to specify a parameter
+
+59
+00:02:15,060 --> 00:02:21,270
+value. And that parameter value
+
+60
+00:02:17,610 --> 00:02:24,870
+is going to be storageAccountPrefix
+
+61
+00:02:21,270 --> 00:02:27,090
+and I'm going to specify a value which
+
+62
+00:02:24,870 --> 00:02:28,770
+is going to be "richeneysa", just to
+
+63
+00:02:27,090 --> 00:02:30,350
+show it's different to stg, which is
+
+64
+00:02:28,770 --> 00:02:34,680
+the default value on the left hand side.
+
+65
+00:02:30,350 --> 00:02:39,600
+If I move the cursor to there and
+
+66
+00:02:34,680 --> 00:02:41,210
+then if I put a comma, then enter, then we
+
+67
+00:02:39,600 --> 00:02:43,920
+should be able to put in another
+
+68
+00:02:41,210 --> 00:02:49,830
+parameter value.  Now we're going to
+
+69
+00:02:43,920 --> 00:02:51,090
+go for accountType and the value you're
+
+70
+00:02:49,830 --> 00:02:55,260
+going to have here is going to be
+
+71
+00:02:51,090 --> 00:02:56,520
+"Standard_LRS" which again is the
+
+72
+00:02:55,260 --> 00:02:58,950
+default, but we're going to make it
+
+73
+00:02:56,520 --> 00:03:01,290
+explicit within this. 
+
+74
+00:02:58,950 --> 00:03:03,450
+Again there should be no problems
+
+75
+00:03:01,290 --> 00:03:04,980
+in that file. There, as you can see, we can
+
+76
+00:03:03,450 --> 00:03:07,140
+shrink up parameters and it closes
+
+77
+00:03:04,980 --> 00:03:09,480
+everything down. We can close down the
+
+78
+00:03:07,140 --> 00:03:11,910
+individual parameters within it and they
+
+79
+00:03:09,480 --> 00:03:15,180
+will be neatly aligned.  That is a good
+
+80
+00:03:11,910 --> 00:03:20,820
+parameter file. If we then open
+
+81
+00:03:15,180 --> 00:03:22,530
+up the area, go back into the lab 1 folder
+
+82
+00:03:20,820 --> 00:03:25,050
+so now we've got both the azuredeploy
+
+83
+00:03:22,530 --> 00:03:27,390
+and parameters file. If you want to
+
+84
+00:03:25,050 --> 00:03:38,790
+submit using these then you can do
+
+85
+00:03:27,390 --> 00:03:40,820
+"az group deployment create" and then
+
+86
+00:03:38,790 --> 00:03:43,370
+specify again the resource group
+
+87
+00:03:40,820 --> 00:03:48,140
+we're submitting into, which is lab1,
+
+88
+00:03:43,370 --> 00:03:55,130
+the template file, azuredeploy.json,
+
+89
+00:03:48,140 --> 00:03:58,110
+then the parameters,
+
+90
+00:03:55,130 --> 00:04:02,130
+rather than having name=value
+
+91
+00:03:58,110 --> 00:04:04,680
+as a list, we're going to use the @
+
+92
+00:04:02,130 --> 00:04:08,720
+operator to signify that it's a file.
+
+93
+00:04:04,680 --> 00:04:11,610
+Enter "@azuredeploy.parameters.json".
+
+94
+00:04:08,720 --> 00:04:14,880
+That is the full command for the submission.
+
+95
+00:04:11,610 --> 00:04:16,530
+Press enter then again it will
+
+96
+00:04:14,880 --> 00:04:18,720
+validate both of those files.
+
+97
+00:04:16,530 --> 00:04:21,239
+
+
+98
+00:04:18,720 --> 00:04:22,620
+
+
+99
+00:04:21,239 --> 00:04:25,169
+If everything is good then it will submit
+
+100
+00:04:22,620 --> 00:04:26,940
+those and we should get the resulting
+
+101
+00:04:25,169 --> 00:04:30,260
+storage account with richeneysa
+
+102
+00:04:26,940 --> 00:04:30,260
+as the prefix instead of our default.
+

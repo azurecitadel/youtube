@@ -1,0 +1,372 @@
+1
+00:00:00,500 --> 00:00:04,830
+Let's test this conditional template
+
+2
+00:00:03,210 --> 00:00:06,839
+by submitting it twice. Once
+
+3
+00:00:04,830 --> 00:00:09,809
+creating a virtual machine which has a
+
+4
+00:00:06,839 --> 00:00:12,059
+public IP,  and once again where we do not
+
+5
+00:00:09,809 --> 00:00:13,980
+specify the dnsLabelPrefix so that it
+
+6
+00:00:12,059 --> 00:00:16,109
+shouldn't create the pip, and will define
+
+7
+00:00:13,980 --> 00:00:18,630
+the NIC differently as a result. You'll
+
+8
+00:00:16,109 --> 00:00:20,850
+notice that in the output section I have
+
+9
+00:00:18,630 --> 00:00:24,210
+removed all of the properties within
+
+10
+00:00:20,850 --> 00:00:26,849
+that object. That's because we have the
+
+11
+00:00:24,210 --> 00:00:28,920
+public IP address as one of those
+
+12
+00:00:26,849 --> 00:00:31,260
+outputs so just to make life simple I've
+
+13
+00:00:28,920 --> 00:00:35,130
+removed that for the moment. 
+
+14
+00:00:31,260 --> 00:00:37,590
+Let's open up the integrated terminal.
+
+15
+00:00:35,130 --> 00:00:41,510
+I'm going to go into the lab4 folder
+
+16
+00:00:37,590 --> 00:00:49,079
+where our files are sitting and I'm going to
+
+17
+00:00:41,510 --> 00:00:54,079
+create a lab4 resource group and
+
+18
+00:00:49,079 --> 00:00:54,079
+put into West Europe as per normal.
+
+19
+00:00:54,379 --> 00:01:01,199
+
+
+20
+00:00:59,100 --> 00:01:02,760
+As I'm deploying a couple I'm going to
+
+21
+00:01:01,199 --> 00:01:04,439
+create myself an alias. This is one thing
+
+22
+00:01:02,760 --> 00:01:07,170
+you can do in Bash. So I'm going to do an
+
+23
+00:01:04,439 --> 00:01:09,770
+alias and I'm going to call my alias 
+
+24
+00:01:07,170 --> 00:01:15,299
+'deploy' and that is going to be set to 
+
+25
+00:01:09,770 --> 00:01:16,799
+'az group deployments create'. I'm not
+
+26
+00:01:15,299 --> 00:01:18,840
+going to specify name or parameters as I want to
+
+27
+00:01:16,799 --> 00:01:20,939
+be able to control those but in terms of
+
+28
+00:01:18,840 --> 00:01:22,680
+the resource group I'm going to default
+
+29
+00:01:20,939 --> 00:01:25,170
+that to be whatever folder I'm in at the
+
+30
+00:01:22,680 --> 00:01:28,920
+moment so I'll make that the basename
+
+31
+00:01:25,170 --> 00:01:30,270
+of whatever we print for the working
+
+32
+00:01:28,920 --> 00:01:33,900
+directory where we are the moment. That
+
+33
+00:01:30,270 --> 00:01:38,400
+should return lab4. Then I'm going
+
+34
+00:01:33,900 --> 00:01:41,369
+to specify my template file as
+
+35
+00:01:38,400 --> 00:01:43,610
+azuredeploy.json.
+
+36
+00:01:41,369 --> 00:01:45,990
+That will save me a little bit typing in a second.
+
+37
+00:01:43,610 --> 00:01:47,280
+If I do "alias deploy",
+
+38
+00:01:45,990 --> 00:01:49,829
+you can see that's been set
+
+39
+00:01:47,280 --> 00:01:51,600
+successfully.  So let's then then deploy
+
+40
+00:01:49,829 --> 00:01:52,500
+using that command. Imagine
+
+41
+00:01:51,600 --> 00:01:54,240
+that's been replaced by that whole
+
+42
+00:01:52,500 --> 00:01:56,250
+command, and then I'm going to set the
+
+43
+00:01:54,240 --> 00:01:59,850
+name for first deployment job as public
+
+44
+00:01:56,250 --> 00:02:04,140
+and for that we're going to specify our
+
+45
+00:01:59,850 --> 00:02:10,129
+parameters file so that will be 
+
+46
+00:02:04,140 --> 00:02:12,060
+"@azuredeploy.parameters.json"
+
+47
+00:02:10,129 --> 00:02:15,720
+and I'm also going to have a couple
+
+48
+00:02:12,060 --> 00:02:22,190
+of inline overrides specifying 
+
+49
+00:02:15,720 --> 00:02:29,370
+vmName=public and 
+
+50
+00:02:22,190 --> 00:02:31,410
+dnsLabelPrefix=richeneypublicvm.
+
+51
+00:02:29,370 --> 00:02:34,050
+So let's submit that. I'm also going
+
+52
+00:02:31,410 --> 00:02:36,590
+to put in a --no-wait so I'm just going to
+
+53
+00:02:34,050 --> 00:02:39,900
+have that deploying in the background. That
+
+54
+00:02:36,590 --> 00:02:42,300
+should submit the job with those two
+
+55
+00:02:39,900 --> 00:02:49,680
+within it. I'm then going to do exactly
+
+56
+00:02:42,300 --> 00:02:52,380
+the same again, but I'm going to change
+
+57
+00:02:49,680 --> 00:02:55,560
+some of these. I will get rid of
+
+58
+00:02:52,380 --> 00:02:59,790
+the dnsLabelPrefix, I'm going to change
+
+59
+00:02:55,560 --> 00:03:05,790
+that to private and I'll change that one
+
+60
+00:02:59,790 --> 00:03:07,049
+to private. Not a great naming convention
+
+61
+00:03:05,790 --> 00:03:15,450
+for you virtual machines but it should
+
+62
+00:03:07,049 --> 00:03:20,120
+show what we've got. And if we do a
+
+63
+00:03:15,450 --> 00:03:23,400
+deployment list for our resource group
+
+64
+00:03:20,120 --> 00:03:26,040
+lab4 then you should see the two
+
+65
+00:03:23,400 --> 00:03:26,970
+jobs are sitting within there. I'll do
+
+66
+00:03:26,040 --> 00:03:36,209
+that as a table so it's a bit more
+
+67
+00:03:26,970 --> 00:03:37,859
+readable and there's our two running
+
+68
+00:03:36,209 --> 00:03:40,650
+jobs. So I'll have a look at those in a minute
+
+69
+00:03:37,859 --> 00:03:42,900
+once it's created but in the meantime we
+
+70
+00:03:40,650 --> 00:03:46,440
+should be able to have a look at the
+
+71
+00:03:42,900 --> 00:03:49,440
+resources and list those out for our
+
+72
+00:03:46,440 --> 00:03:50,609
+resource group. By the way you can see
+
+73
+00:03:49,440 --> 00:03:51,690
+I'm using the --resource-groups switch a lot
+
+74
+00:03:50,609 --> 00:03:53,400
+of times. I probably want to use
+
+75
+00:03:51,690 --> 00:03:54,870
+"as configure --defaults" if
+
+76
+00:03:53,400 --> 00:03:57,510
+you're doing a lot of commands in a
+
+77
+00:03:54,870 --> 00:04:01,019
+resource group and specify "group=lab4".
+
+78
+00:03:57,510 --> 00:04:02,700
+Hopefully it has
+
+79
+00:04:01,019 --> 00:04:04,400
+started creating some of the resources. 
+
+80
+00:04:02,700 --> 00:04:06,900
+If you remember the public IP addresses
+
+81
+00:04:04,400 --> 00:04:08,250
+are not contingent on anything else,
+
+82
+00:04:06,900 --> 00:04:09,329
+they've got no dependency so they should
+
+83
+00:04:08,250 --> 00:04:11,670
+be created straight away so you can see
+
+84
+00:04:09,329 --> 00:04:14,130
+the public NIC and the public PIP is
+
+85
+00:04:11,670 --> 00:04:16,739
+being created but we only have a private
+
+86
+00:04:14,130 --> 00:04:18,329
+NIC so that's already looking quite
+
+87
+00:04:16,739 --> 00:04:23,280
+good. I'll pipe those to sort so they're in a
+
+88
+00:04:18,329 --> 00:04:25,110
+slightly better order. OK, so there you
+
+89
+00:04:23,280 --> 00:04:25,740
+can see that for the private one we've
+
+90
+00:04:25,110 --> 00:04:26,910
+got just a NIC,
+
+91
+00:04:25,740 --> 00:04:28,590
+for the public one we've got both 
+
+92
+00:04:26,910 --> 00:04:31,819
+a NIC and a PIP.
+
+93
+00:04:28,590 --> 00:04:31,819
+That's coming through quite neatly. Good.
+

@@ -1,0 +1,200 @@
+1
+00:00:00,030 --> 00:00:04,620
+Before we move on with lab 2, just
+
+2
+00:00:02,639 --> 00:00:07,140
+want to go through API versions very
+
+3
+00:00:04,620 --> 00:00:09,059
+quickly. If I navigate using the
+
+4
+00:00:07,140 --> 00:00:10,559
+JSON outline tool down to our resources
+
+5
+00:00:09,059 --> 00:00:12,809
+and our storage account,
+
+6
+00:00:10,559 --> 00:00:15,750
+then what you see at the top of the
+
+7
+00:00:12,809 --> 00:00:17,430
+file is very standard.  We have the 
+
+8
+00:00:15,750 --> 00:00:20,070
+type which is our resource
+
+9
+00:00:17,430 --> 00:00:22,109
+provider / resource type.  We then have
+
+10
+00:00:20,070 --> 00:00:24,510
+the name for the resource, the API
+
+11
+00:00:22,109 --> 00:00:26,340
+version, and then the location. 
+
+12
+00:00:24,510 --> 00:00:29,369
+This could be in any order you want. 
+
+13
+00:00:26,340 --> 00:00:31,140
+Location is commonly set to the same
+
+14
+00:00:29,369 --> 00:00:32,340
+location as the resource group itself so
+
+15
+00:00:31,140 --> 00:00:34,770
+again West Europe for the resource group.
+
+16
+00:00:32,340 --> 00:00:36,540
+
+
+17
+00:00:34,770 --> 00:00:39,390
+The API version as you can see here is the
+
+18
+00:00:36,540 --> 00:00:42,480
+15th June 2015 so this is not a
+
+19
+00:00:39,390 --> 00:00:45,530
+particularly new one. As new features get
+
+20
+00:00:42,480 --> 00:00:47,820
+added into the various Azure services
+
+21
+00:00:45,530 --> 00:00:50,399
+then if they require additional
+
+22
+00:00:47,820 --> 00:00:52,379
+properties to go into the ARM JSON
+
+23
+00:00:50,399 --> 00:00:54,120
+standard for that resource type then the schema
+
+24
+00:00:52,379 --> 00:00:56,309
+gets updated for that resource.
+
+25
+00:00:54,120 --> 00:00:58,620
+I'm going to take a copy of the resource type.
+
+26
+00:00:56,309 --> 00:01:01,430
+"Microsoft.Storage/storageAccounts"
+
+27
+00:00:58,620 --> 00:01:06,030
+Go to a browser and go to
+
+28
+00:01:01,430 --> 00:01:08,340
+https://aka.ms/armref.
+
+29
+00:01:06,030 --> 00:01:10,979
+That'll take us through to the ARM
+
+30
+00:01:08,340 --> 00:01:12,180
+reference area.  It's very structured
+
+31
+00:01:10,979 --> 00:01:13,830
+in the way it is organized.  You can
+
+32
+00:01:12,180 --> 00:01:15,090
+navigate through just browsing on the
+
+33
+00:01:13,830 --> 00:01:17,250
+left hand side into the various
+
+34
+00:01:15,090 --> 00:01:19,380
+providers and then into the resource
+
+35
+00:01:17,250 --> 00:01:22,619
+types and sub resources whin those.
+
+36
+00:01:19,380 --> 00:01:25,200
+Or you can append to the URL at
+
+37
+00:01:22,619 --> 00:01:27,299
+the top here and put in the provider
+
+38
+00:01:25,200 --> 00:01:29,790
+type and that'll take you straight
+
+39
+00:01:27,299 --> 00:01:32,369
+through to the reference page.
+
+40
+00:01:29,790 --> 00:01:35,189
+You get a full resource
+
+41
+00:01:32,369 --> 00:01:36,750
+template description.  
+
+42
+00:01:35,189 --> 00:01:40,979
+It shows you the API version.
+
+43
+00:01:36,750 --> 00:01:42,630
+This is February 2018 and it has some
+
+44
+00:01:40,979 --> 00:01:44,130
+information for the properties
+
+45
+00:01:42,630 --> 00:01:46,939
+within it and some of the
+
+46
+00:01:44,130 --> 00:01:49,439
+sub objects that form the fuller
+
+47
+00:01:46,939 --> 00:01:51,390
+definition so if you want to have a look
+
+48
+00:01:49,439 --> 00:01:53,549
+at v2 storage accounts or anything to do with
+
+49
+00:01:51,390 --> 00:01:56,869
+encryption then you'll see the
+
+50
+00:01:53,549 --> 00:01:56,869
+additional detail within there.
+

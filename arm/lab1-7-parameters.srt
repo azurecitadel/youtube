@@ -1,0 +1,548 @@
+1
+00:00:00,380 --> 00:00:05,009
+OK, so our template works but it's very
+
+2
+00:00:02,550 --> 00:00:07,049
+hard coded as it stands. We're going
+
+3
+00:00:05,009 --> 00:00:09,660
+to open up a couple of the properties to
+
+4
+00:00:07,049 --> 00:00:11,730
+the users as parameters. In the
+
+5
+00:00:09,660 --> 00:00:14,940
+parameter section you define, essentially
+
+6
+00:00:11,730 --> 00:00:18,180
+declare, which parameters are expected or
+
+7
+00:00:14,940 --> 00:00:19,740
+required from the user. I've put the
+
+8
+00:00:18,180 --> 00:00:22,350
+cursor between the two curly braces, hit
+
+9
+00:00:19,740 --> 00:00:25,769
+enter to go down and indent as before and if
+
+10
+00:00:22,350 --> 00:00:28,289
+I then type 'armp' then that will
+
+11
+00:00:25,769 --> 00:00:30,630
+filter down the snippets list and the
+
+12
+00:00:28,289 --> 00:00:32,550
+second one down is arm-parameter.
+
+13
+00:00:30,630 --> 00:00:34,590
+That's what we need within this section.
+
+14
+00:00:32,550 --> 00:00:35,870
+It's automatically highlighted 'parameterName'.
+
+15
+00:00:34,590 --> 00:00:40,020
+I'm going to put in ''storageAccount
+
+16
+00:00:35,870 --> 00:00:41,850
+using camelcase, so lowercase
+
+17
+00:00:40,020 --> 00:00:44,940
+the beginning and new words begin with
+
+18
+00:00:41,850 --> 00:00:46,590
+a capital (letter).  It's got a yellow
+
+19
+00:00:44,940 --> 00:00:48,570
+underline because we're not using it yet
+
+20
+00:00:46,590 --> 00:00:51,210
+anywhere within the template. When you
+
+21
+00:00:48,570 --> 00:00:52,980
+hover over any warnings or errors within
+
+22
+00:00:51,210 --> 00:00:54,719
+your template it will show some tooltip
+
+23
+00:00:52,980 --> 00:00:57,030
+about that.  There's a number of
+
+24
+00:00:54,719 --> 00:00:58,590
+different types that we can have for our
+
+25
+00:00:57,030 --> 00:01:01,500
+parameters, There could be strings or
+
+26
+00:00:58,590 --> 00:01:04,140
+integers or booleans or arrays or
+
+27
+00:01:01,500 --> 00:01:05,729
+objects or securestrings or secureobjects,
+
+28
+00:01:04,140 --> 00:01:06,900
+so a number of different things that
+
+29
+00:01:05,729 --> 00:01:08,280
+we can have within this.  We're going
+
+30
+00:01:06,900 --> 00:01:09,869
+to keep it simple as this is just a string. 
+
+31
+00:01:08,280 --> 00:01:11,189
+I'm going to be structured
+
+32
+00:01:09,869 --> 00:01:13,380
+about this and put it in a metadata
+
+33
+00:01:11,189 --> 00:01:16,229
+description as well to describe the
+
+34
+00:01:13,380 --> 00:01:19,470
+parameter we've just created.  So "Name for
+
+35
+00:01:16,229 --> 00:01:21,840
+the storage account", and that's our
+
+36
+00:01:19,470 --> 00:01:23,369
+first variable. Now we're not actually
+
+37
+00:01:21,840 --> 00:01:25,680
+using that anyway yet, because we still
+
+38
+00:01:23,369 --> 00:01:27,210
+have our hard-coded values so that's the
+
+39
+00:01:25,680 --> 00:01:28,530
+bit that we want to replace so where I have
+
+40
+00:01:27,210 --> 00:01:30,920
+'richeneystgacct'.  Now you
+
+41
+00:01:28,530 --> 00:01:33,900
+notice that when I double clicked on that,
+
+42
+00:01:30,920 --> 00:01:36,210
+it says 15 selected characters down
+
+43
+00:01:33,900 --> 00:01:37,770
+there in the status bar.
+
+44
+00:01:36,210 --> 00:01:39,299
+It's because the first one is selected,
+
+45
+00:01:37,770 --> 00:01:40,860
+but it's also highlighted one which
+
+46
+00:01:39,299 --> 00:01:44,009
+matches it. This is one of the great
+
+47
+00:01:40,860 --> 00:01:47,640
+refactoring aspects of using vscode. If
+
+48
+00:01:44,009 --> 00:01:50,009
+you type CTRL+F2 at this point then
+
+49
+00:01:47,640 --> 00:01:51,720
+that will select all matching strings
+
+50
+00:01:50,009 --> 00:01:53,430
+for that, so you can see now in the status
+
+51
+00:01:51,720 --> 00:01:55,770
+bar it shows two selections and all 30
+
+52
+00:01:53,430 --> 00:01:57,630
+characters are selected. I can then hit
+
+53
+00:01:55,770 --> 00:01:58,860
+delete and I'll get rid of those. OK,
+
+54
+00:01:57,630 --> 00:02:00,619
+the other thing you want to be very
+
+55
+00:01:58,860 --> 00:02:02,310
+structured about is how you add in
+
+56
+00:02:00,619 --> 00:02:05,460
+functions.  This is going to be our first
+
+57
+00:02:02,310 --> 00:02:08,190
+function. Within our empty double
+
+58
+00:02:05,460 --> 00:02:09,599
+speech marks I'm going to do square brackets,
+
+59
+00:02:08,190 --> 00:02:11,280
+open square brackets, and you can see
+
+60
+00:02:09,599 --> 00:02:13,110
+what I do that it automatically creates
+
+61
+00:02:11,280 --> 00:02:13,680
+a new bit of intellisense for the
+
+62
+00:02:13,110 --> 00:02:16,079
+different functions.
+
+63
+00:02:13,680 --> 00:02:18,599
+If I type in "par" I should see
+
+64
+00:02:16,079 --> 00:02:21,450
+parameters comes in at that point. If I
+
+65
+00:02:18,599 --> 00:02:23,879
+tab over then it automatically puts in
+
+66
+00:02:21,450 --> 00:02:26,340
+the round braces. Add in a single quote
+
+67
+00:02:23,879 --> 00:02:28,469
+and then it will give you an Intellisense
+
+68
+00:02:26,340 --> 00:02:30,239
+based on the parameters which you have
+
+69
+00:02:28,469 --> 00:02:31,680
+defined up top. So because we've only
+
+70
+00:02:30,239 --> 00:02:34,139
+got storageAccount that's showing up. If
+
+71
+00:02:31,680 --> 00:02:37,170
+I tab that over that populates that and
+
+72
+00:02:34,139 --> 00:02:39,060
+then to finish off that function we then
+
+73
+00:02:37,170 --> 00:02:40,379
+have square brackets. All functions
+
+74
+00:02:39,060 --> 00:02:42,180
+have got speech marks and square
+
+75
+00:02:40,379 --> 00:02:43,889
+brackets surrounding them, that's the
+
+76
+00:02:42,180 --> 00:02:46,049
+format of these and then we have
+
+77
+00:02:43,889 --> 00:02:49,200
+"[ parameters('storageAccount') ]"
+
+78
+00:02:46,049 --> 00:02:50,760
+as a string. That's then referencing
+
+79
+00:02:49,200 --> 00:02:52,470
+whatever the user puts in at the top. 
+
+80
+00:02:50,760 --> 00:02:54,750
+And you can see that it's done that for both the
+
+81
+00:02:52,470 --> 00:02:57,269
+name and also for our tags.displayname
+
+82
+00:02:54,750 --> 00:02:58,590
+as well. OK, just going to save that as
+
+83
+00:02:57,269 --> 00:02:59,849
+it stands. Right, we're going to add in a
+
+84
+00:02:58,590 --> 00:03:01,889
+second parameter and this one's going to have
+
+85
+00:02:59,849 --> 00:03:03,389
+a couple of additional properties. 
+
+86
+00:03:01,889 --> 00:03:07,109
+One thing which is very handy is if you
+
+87
+00:03:03,389 --> 00:03:08,310
+hover over near the row numbers then you
+
+88
+00:03:07,109 --> 00:03:10,560
+can see these plus and minus symbols
+
+89
+00:03:08,310 --> 00:03:12,269
+come in, so you can click on them to then
+
+90
+00:03:10,560 --> 00:03:14,370
+shrink that up. You can see that is
+
+91
+00:03:12,269 --> 00:03:15,989
+basically the end brace for that parameter value.
+
+92
+00:03:14,370 --> 00:03:18,000
+The other thing which it does within vscode is 
+
+93
+00:03:15,989 --> 00:03:19,829
+that if you are next to a brace - if you're
+
+94
+00:03:18,000 --> 00:03:21,599
+moving around - then it will show you
+
+95
+00:03:19,829 --> 00:03:23,340
+which matching brace there is. So you can
+
+96
+00:03:21,599 --> 00:03:24,989
+see that's the one I expect to see for
+
+97
+00:03:23,340 --> 00:03:27,269
+the value of storage accounts, the
+
+98
+00:03:24,989 --> 00:03:29,760
+storageAccounts name:value is
+
+99
+00:03:27,269 --> 00:03:32,909
+this object. If I do a comma there and
+
+100
+00:03:29,760 --> 00:03:35,849
+then go down with enter, then it enables
+
+101
+00:03:32,909 --> 00:03:39,199
+me to put in the second parameter. This
+
+102
+00:03:35,849 --> 00:03:41,159
+one we're going to call 'accountType'.
+
+103
+00:03:39,199 --> 00:03:43,199
+Again it's going to be a
+
+104
+00:03:41,159 --> 00:03:47,519
+string and it's going to be essentially
+
+105
+00:03:43,199 --> 00:03:48,540
+the SKU for the storage account.  Now
+
+106
+00:03:47,519 --> 00:03:50,909
+we're going to add in a couple of
+
+107
+00:03:48,540 --> 00:03:52,439
+additional parameters into this.  A default value
+
+108
+00:03:50,909 --> 00:03:54,629
+which is going to be standardLRS,
+
+109
+00:03:52,439 --> 00:03:57,120
+and also a list of permitted values,
+
+110
+00:03:54,629 --> 00:03:59,519
+allowed values, so if I'm there and I hit
+
+111
+00:03:57,120 --> 00:04:00,989
+enter and then put in speech mark again
+
+112
+00:03:59,519 --> 00:04:02,879
+the Intellisense kicks in it and it shows
+
+113
+00:04:00,989 --> 00:04:05,840
+defaultValue so I can tell you that tab
+
+114
+00:04:02,879 --> 00:04:09,569
+it over and then put in standard_LRS
+
+115
+00:04:05,840 --> 00:04:11,400
+And then if I do the same
+
+116
+00:04:09,569 --> 00:04:13,349
+for the allowed values that
+
+117
+00:04:11,400 --> 00:04:15,329
+automatically puts in an array for me
+
+118
+00:04:13,349 --> 00:04:18,690
+and then I could say okay so 
+
+119
+00:04:15,329 --> 00:04:22,170
+"Standard_LRS" is one, and I'm going to
+
+120
+00:04:18,690 --> 00:04:26,100
+have "Premium_LRS"
+
+121
+00:04:22,170 --> 00:04:30,860
+and then finally 
+
+122
+00:04:26,100 --> 00:04:34,500
+"Standard_RAGRS". 
+
+123
+00:04:30,860 --> 00:04:36,870
+So then we've got that fully described. 
+
+124
+00:04:34,500 --> 00:04:38,730
+Again we're not yet using it. We've got
+
+125
+00:04:36,870 --> 00:04:41,130
+the warning for that with accountTypes.
+
+126
+00:04:38,730 --> 00:04:44,210
+If you see a list of warnings or any
+
+127
+00:04:41,130 --> 00:04:46,650
+syntax errors, if you do CTRL+SHIFT+M and 
+
+128
+00:04:44,210 --> 00:04:47,880
+then that'll bring up all the Problems
+
+129
+00:04:46,650 --> 00:04:50,640
+you have with them so it says here that
+
+130
+00:04:47,880 --> 00:04:52,440
+it's accountType is never used. Just
+
+131
+00:04:50,640 --> 00:04:53,970
+close it off again and we see that's
+
+132
+00:04:52,440 --> 00:04:56,520
+right because we've still got it hard-coded
+
+133
+00:04:53,970 --> 00:04:58,830
+within our resources section. If I get
+
+134
+00:04:56,520 --> 00:05:04,250
+rid of that I can then do the same as
+
+135
+00:04:58,830 --> 00:05:04,250
+before and use the Intellisense to
+
+136
+00:05:06,200 --> 00:05:13,010
+automatically enter in our accountType
+
+137
+00:05:08,880 --> 00:05:13,010
+within that and then save the file.
+

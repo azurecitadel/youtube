@@ -1,0 +1,487 @@
+1
+00:00:00,140 --> 00:00:05,580
+Here's our VM template. This is the
+
+2
+00:00:02,909 --> 00:00:08,340
+one which is making use of the Key Vault
+
+3
+00:00:05,580 --> 00:00:10,800
+secret for the admin password,
+
+4
+00:00:08,340 --> 00:00:14,070
+sending that through as a securestring.
+
+5
+00:00:10,800 --> 00:00:15,960
+By default, at the bottom of
+
+6
+00:00:14,070 --> 00:00:18,000
+this template we have two outputs. 
+
+7
+00:00:15,960 --> 00:00:20,250
+One for the hostname and one for the ssh
+
+8
+00:00:18,000 --> 00:00:22,320
+command. There are times when you
+
+9
+00:00:20,250 --> 00:00:25,560
+want to output additional information,
+
+10
+00:00:22,320 --> 00:00:28,380
+and this is how I go about doing it.
+
+11
+00:00:25,560 --> 00:00:30,359
+I make use of the reference() function.
+
+12
+00:00:28,380 --> 00:00:32,820
+You can see it being called
+
+13
+00:00:30,359 --> 00:00:34,110
+with the standard outputs I have
+
+14
+00:00:32,820 --> 00:00:38,190
+here. This is the way you'd normally see
+
+15
+00:00:34,110 --> 00:00:40,469
+it. You just pass in a resourceId. You
+
+16
+00:00:38,190 --> 00:00:43,050
+can see there's a vmId variable. If I move
+17
+00:00:40,469 --> 00:00:45,210
+up to there for a second that is just a
+
+18
+00:00:43,050 --> 00:00:46,920
+standard resourceId passing in the
+
+19
+00:00:45,210 --> 00:00:49,260
+'Microsoft.Compute/virtualmachines'
+
+20
+00:00:46,920 --> 00:00:51,270
+resource type and then the name
+
+21
+00:00:49,260 --> 00:00:54,300
+of the resource itself using
+
+22
+00:00:51,270 --> 00:00:58,469
+parameters('vmName'). There is another
+
+23
+00:00:54,300 --> 00:01:01,440
+way of calling reference and
+
+24
+00:00:58,469 --> 00:01:04,589
+that is by passing in the optional
+
+25
+00:01:01,440 --> 00:01:07,439
+second and third values to the function
+
+26
+00:01:04,589 --> 00:01:09,689
+call. The second one is the apiVersion
+
+27
+00:01:07,439 --> 00:01:11,400
+and the third one is 'full'. 
+
+28
+00:01:09,689 --> 00:01:13,830
+That takes the JSON output it gives
+
+29
+00:01:11,400 --> 00:01:16,409
+you and pulls it up a level, giving
+
+30
+00:01:13,830 --> 00:01:18,119
+you some additional information around
+
+31
+00:01:16,409 --> 00:01:21,000
+the deployment type and other
+
+32
+00:01:18,119 --> 00:01:22,979
+information for that resource. 
+
+33
+00:01:21,000 --> 00:01:25,500
+You'll see that the standard information
+
+34
+00:01:22,979 --> 00:01:27,540
+we have is actually the 
+
+35
+00:01:25,500 --> 00:01:29,280
+properties value within 'full'.
+
+36
+00:01:27,540 --> 00:01:30,869
+Feel free to play with 
+
+37
+00:01:29,280 --> 00:01:32,820
+using the 'full' argument
+
+38
+00:01:30,869 --> 00:01:34,920
+yourself. We are going to
+
+39
+00:01:32,820 --> 00:01:37,140
+take a look at the standard output.
+
+40
+00:01:34,920 --> 00:01:41,360
+Let me just rework my screen and bring
+
+41
+00:01:37,140 --> 00:01:45,259
+up the terminal. If I do 
+
+42
+00:01:41,360 --> 00:01:49,200
+'az group deployment list' and have a look at
+
+43
+00:01:45,259 --> 00:01:54,119
+the app3 resourceGroup.
+
+44
+00:01:49,200 --> 00:01:56,070
+I'll do that as table output.
+
+45
+00:01:54,119 --> 00:01:58,469
+That should show that we have got one
+
+46
+00:01:56,070 --> 00:02:00,210
+deployment job, fairly recently run, and
+
+47
+00:01:58,469 --> 00:02:02,250
+it's called azuredeploy. I didn't
+
+48
+00:02:00,210 --> 00:02:04,710
+specify a name, it's just
+
+49
+00:02:02,250 --> 00:02:09,270
+the basename for the template.
+
+50
+00:02:04,710 --> 00:02:14,370
+If I run 'az group deployment show' and
+
+51
+00:02:09,270 --> 00:02:18,080
+again '--resourceGroup lab3', the name of
+
+52
+00:02:14,370 --> 00:02:20,940
+the deployment job, '--name azuredeploy' and
+
+53
+00:02:18,080 --> 00:02:25,200
+then we're going to do the output.
+
+54
+00:02:20,940 --> 00:02:27,930
+Normally I use output in jsonc (coloured
+
+55
+00:02:25,200 --> 00:02:29,250
+JSON), but I'll do this in standard uncoloured
+
+56
+00:02:27,930 --> 00:02:30,870
+JSON because we're going to copy this
+
+57
+00:02:29,250 --> 00:02:33,780
+and use it in a tool so we can drill
+
+58
+00:02:30,870 --> 00:02:37,349
+down into it more easily. I'm going
+
+59
+00:02:33,780 --> 00:02:40,530
+to do a standard JMESPATH query. Have a
+
+60
+00:02:37,349 --> 00:02:41,280
+look at https://aka.ms/citadel/guides if
+
+61
+00:02:40,530 --> 00:02:44,780
+you want to see some more information
+
+62
+00:02:41,280 --> 00:02:48,300
+about how to do these. Query on
+
+63
+00:02:44,780 --> 00:02:50,340
+properties.outputs. Within that
+
+64
+00:02:48,300 --> 00:02:52,530
+we're then going to drill into the
+
+65
+00:02:50,340 --> 00:02:58,319
+"standard" output we just created
+
+66
+00:02:52,530 --> 00:03:01,830
+and see the value of that. If that runs
+
+67
+00:02:58,319 --> 00:03:03,720
+successfully then this is what we'll see.
+
+68
+00:03:01,830 --> 00:03:06,330
+There's quite a lot of
+
+69
+00:03:03,720 --> 00:03:10,640
+information coming out for the virtual
+
+70
+00:03:06,330 --> 00:03:10,640
+machine resourceID. Now I'm just going to
+
+71
+00:03:11,060 --> 00:03:19,050
+take that information and copy it out, 
+
+72
+00:03:15,360 --> 00:03:21,690
+and go to the browser.  Now this is 
+
+73
+00:03:19,050 --> 00:03:23,040
+https://jqplay.org.  If you've seen
+
+74
+00:03:21,690 --> 00:03:24,870
+the guides, you'll have noticed me talking
+
+75
+00:03:23,040 --> 00:03:28,230
+about jq as a command.  And jqplay is one
+
+76
+00:03:24,870 --> 00:03:31,200
+way you can find out how to query some
+
+77
+00:03:28,230 --> 00:03:33,750
+JSON output and formulate one of those
+
+78
+00:03:31,200 --> 00:03:35,069
+jq command lines. It's also useful for
+
+79
+00:03:33,750 --> 00:03:38,510
+getting the dot notation we can then use
+
+80
+00:03:35,069 --> 00:03:41,280
+within templates. If I paste in our
+
+81
+00:03:38,510 --> 00:03:45,090
+JSON, into the area on the left hand
+
+82
+00:03:41,280 --> 00:03:46,349
+side, with jq, "." outputs everything on the
+
+83
+00:03:45,090 --> 00:03:47,940
+right hand side. We can then start
+
+84
+00:03:46,349 --> 00:03:52,670
+drilling into it.  If I wanted to put
+
+85
+00:03:47,940 --> 00:03:52,670
+in the diagnosticsProfile
+
+86
+00:03:52,849 --> 00:03:58,170
+then you can see that auto
+
+87
+00:03:55,379 --> 00:04:02,280
+filters it down.
+
+88
+00:03:58,170 --> 00:04:04,400
+
+
+89
+00:04:02,280 --> 00:04:08,040
+It is filtered down to that section of
+
+90
+00:04:04,400 --> 00:04:11,340
+that JSON.  Instead we wanted to
+
+91
+00:04:08,040 --> 00:04:12,810
+get into 
+
+92
+00:04:11,340 --> 00:04:15,510
+the storage profile. So let's
+
+93
+00:04:12,810 --> 00:04:18,600
+change that to .storageProfile
+
+94
+00:04:15,510 --> 00:04:20,850
+so you've got storage
+
+95
+00:04:18,600 --> 00:04:22,620
+profile and then that should
+
+96
+00:04:20,850 --> 00:04:25,980
+automatically start drilling into that and
+
+97
+00:04:22,620 --> 00:04:27,960
+then if we typed ".osDisk" again it will
+
+98
+00:04:25,980 --> 00:04:29,550
+filter it down further another level
+
+99
+00:04:27,960 --> 00:04:31,910
+down and it's the ID within the
+
+100
+00:04:29,550 --> 00:04:37,980
+managedDisk section. So, add on
+
+101
+00:04:31,910 --> 00:04:40,800
+".managedDisk.id" and that should then
+
+102
+00:04:37,980 --> 00:04:42,120
+give us the actual ID for the OS disk.
+
+103
+00:04:40,800 --> 00:04:45,660
+If you're using jq command you would
+
+104
+00:04:42,120 --> 00:04:47,550
+normally do the raw output
+
+105
+00:04:45,660 --> 00:04:50,070
+and that will strip off the
+
+106
+00:04:47,550 --> 00:04:55,200
+speech marks.  Like using 
+
+107
+00:04:50,070 --> 00:04:58,410
+"--output tsv", i.e. tab separated values.
+
+108
+00:04:55,200 --> 00:04:59,970
+When you're using that. So that is the
+
+109
+00:04:58,410 --> 00:05:03,780
+pathing convention we're going to use. 
+
+110
+00:04:59,970 --> 00:05:06,570
+
+
+111
+00:05:03,780 --> 00:05:10,410
+I'll get rid of 
+
+112
+00:05:06,570 --> 00:05:14,550
+the 'full'. Instead of
+
+113
+00:05:10,410 --> 00:05:19,440
+outputting "standard", outputs "osDiskId".
+
+114
+00:05:14,550 --> 00:05:21,840
+That would now
+
+115
+00:05:19,440 --> 00:05:25,640
+be a string rather than an object.
+
+116
+00:05:21,840 --> 00:05:25,640
+
+
+117
+00:05:25,910 --> 00:05:31,130
+As well as pulling out the the reference
+
+118
+00:05:28,950 --> 00:05:34,440
+for the variable ID we're now going to
+
+119
+00:05:31,130 --> 00:05:37,560
+paste the .storageProfile.osDisk.managedDisk.id
+
+120
+00:05:34,440 --> 00:05:40,080
+and that should
+
+121
+00:05:37,560 --> 00:05:44,210
+pull out that particular ID and outputs it.
+
+122
+00:05:40,080 --> 00:05:44,210
+Save that and run it.
+

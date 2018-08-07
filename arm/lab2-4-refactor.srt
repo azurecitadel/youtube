@@ -1,0 +1,948 @@
+1
+00:00:00,140 --> 00:00:05,700
+Here's our template and parameter
+
+2
+00:00:03,240 --> 00:00:07,290
+file as exported straight from the
+
+3
+00:00:05,700 --> 00:00:09,480
+portal. As you can see it's been
+
+4
+00:00:07,290 --> 00:00:12,480
+automatically and programmatically generated,
+
+5
+00:00:09,480 --> 00:00:13,650
+which is great and useful, but it does
+
+6
+00:00:12,480 --> 00:00:15,540
+have some weird things in this
+
+7
+00:00:13,650 --> 00:00:16,949
+particular one. It's very common once
+
+8
+00:00:15,540 --> 00:00:20,000
+you've exported a template to start
+
+9
+00:00:16,949 --> 00:00:22,260
+customizing it to make it your own.
+
+10
+00:00:20,000 --> 00:00:24,420
+One of the things I see here is if I
+
+11
+00:00:22,260 --> 00:00:26,760
+look at my parameter file there are nine
+
+12
+00:00:24,420 --> 00:00:28,470
+parameters in here, most of which I don't
+
+13
+00:00:26,760 --> 00:00:31,859
+think need to be specified. I want to
+
+14
+00:00:28,470 --> 00:00:35,489
+hard-code my SKU to be a free F1 type
+
+15
+00:00:31,859 --> 00:00:37,260
+Web App. When it comes to the resource
+
+16
+00:00:35,489 --> 00:00:39,149
+group then I'm going to have my plan and
+
+17
+00:00:37,260 --> 00:00:40,440
+my web app in the same resource group.
+
+18
+00:00:39,149 --> 00:00:42,780
+I shouldn't be specifying things like
+
+19
+00:00:40,440 --> 00:00:45,059
+location and subscription ID, so a lot of
+
+20
+00:00:42,780 --> 00:00:48,660
+these things aren't relevant. Also if I
+
+21
+00:00:45,059 --> 00:00:50,730
+look at the template itself then again I
+
+22
+00:00:48,660 --> 00:00:53,340
+should be able reduce down those. There're
+
+23
+00:00:50,730 --> 00:00:55,430
+no variables specified at the moment.
+
+24
+00:00:53,340 --> 00:00:58,230
+We've also got some errors coming through for
+
+25
+00:00:55,430 --> 00:00:59,550
+the API version and the website version
+
+26
+00:00:58,230 --> 00:01:01,949
+as well. I'm going to tidy some of
+
+27
+00:00:59,550 --> 00:01:03,629
+these things up. First thing I'm going to
+
+28
+00:01:01,949 --> 00:01:05,100
+do is I'm going to move up the schema
+
+29
+00:01:03,629 --> 00:01:07,409
+and the content version, up to the top of
+
+30
+00:01:05,100 --> 00:01:09,750
+the file. It really doesn't matter to be
+
+31
+00:01:07,409 --> 00:01:11,610
+honest, but it's where I'm used to seeing
+
+32
+00:01:09,750 --> 00:01:13,950
+them, so I'm going to put those back at
+
+33
+00:01:11,610 --> 00:01:15,390
+the top of the file and just make sure
+
+34
+00:01:13,950 --> 00:01:19,790
+it's syntactically good before we start.
+
+35
+00:01:15,390 --> 00:01:28,170
+Now if we go to the https://aka.ms/armref
+
+36
+00:01:19,790 --> 00:01:31,560
+area again and we have a look
+
+37
+00:01:28,170 --> 00:01:37,770
+at web apps 
+
+38
+00:01:31,560 --> 00:01:47,220
+then we'll see the API version
+
+39
+00:01:37,770 --> 00:01:48,810
+for that is now up to 2016-08-01.
+
+40
+00:01:47,220 --> 00:01:52,110
+
+
+41
+00:01:48,810 --> 00:01:55,409
+In doing that change
+
+42
+00:01:52,110 --> 00:01:57,719
+we've got rid of that error. 
+
+43
+00:01:55,409 --> 00:01:59,159
+
+
+44
+00:01:57,719 --> 00:02:00,840
+I'm going to start removing some things which
+
+45
+00:01:59,159 --> 00:02:03,540
+are silly so things like using a
+
+46
+00:02:00,840 --> 00:02:05,670
+parameter for location. I am very happy
+
+47
+00:02:03,540 --> 00:02:08,610
+to ensure that these resources go into the
+
+48
+00:02:05,670 --> 00:02:10,410
+same location as the resource group.
+
+49
+00:02:08,610 --> 00:02:12,330
+There are other times when you might
+
+50
+00:02:10,410 --> 00:02:13,650
+want to specify things differently. 
+
+51
+00:02:12,330 --> 00:02:16,180
+The resourceGroup().location function
+
+52
+00:02:13,650 --> 00:02:17,830
+is a very standard thing to put
+
+53
+00:02:16,180 --> 00:02:26,170
+into there and I'm going to do exactly
+
+54
+00:02:17,830 --> 00:02:26,710
+the same for the other one. 
+
+55
+00:02:26,170 --> 00:02:32,440
+
+
+56
+00:02:26,710 --> 00:02:34,000
+And for the tier and 
+
+57
+00:02:32,440 --> 00:02:36,820
+for the name 
+
+58
+00:02:34,000 --> 00:02:40,780
+then again we want to
+
+59
+00:02:36,820 --> 00:02:44,740
+go for a SKU code of F1 and a SKU of
+
+60
+00:02:40,780 --> 00:02:46,570
+Free.
+
+61
+00:02:44,740 --> 00:02:48,070
+I'm going to hard-code this so rather
+
+62
+00:02:46,570 --> 00:02:51,100
+than putting in a parameter, I'm just
+
+63
+00:02:48,070 --> 00:02:53,410
+going to set value to "Free" and likewise for the
+
+64
+00:02:51,100 --> 00:02:55,720
+name of SKU code, I'm going to go with "F1". 
+
+65
+00:02:53,410 --> 00:02:57,070
+So that makes that part slightly simpler.
+
+66
+00:02:55,720 --> 00:03:00,220
+One of the other things you'll notice if
+
+67
+00:02:57,070 --> 00:03:02,560
+you have a look at the template
+
+68
+00:03:00,220 --> 00:03:04,570
+reference is there's absolutely no
+
+69
+00:03:02,560 --> 00:03:07,560
+reference at all to hostingEnvironment
+
+70
+00:03:04,570 --> 00:03:11,770
+so we can safely get rid of that as well.
+
+71
+00:03:07,560 --> 00:03:17,470
+Likewise for the workerSizeId.
+
+72
+00:03:11,770 --> 00:03:20,950
+Currently that is set at zero.
+
+73
+00:03:17,470 --> 00:03:28,750
+We can do the same with this and
+
+74
+00:03:20,950 --> 00:03:30,130
+again hardcode it to zero.
+
+75
+00:03:28,750 --> 00:03:32,260
+I've dropped out a few of the
+
+76
+00:03:30,130 --> 00:03:33,130
+variables just to clear those up
+
+77
+00:03:32,260 --> 00:03:35,980
+because you can see they're no longer
+
+78
+00:03:33,130 --> 00:03:39,370
+being used and we can take that set out
+
+79
+00:03:35,980 --> 00:03:42,670
+and remove them.  Shrunk it down quite
+
+80
+00:03:39,370 --> 00:03:45,310
+a lot already. Now serverFarmResourceGroup
+
+81
+00:03:42,670 --> 00:03:47,650
+is being used by this very
+
+82
+00:03:45,310 --> 00:03:49,209
+bizarre-looking tag. This is
+
+83
+00:03:47,650 --> 00:03:55,510
+essentially creating a tag called hidden-
+
+84
+00:03:49,209 --> 00:03:57,610
+related and is concatenating a number of
+
+85
+00:03:55,510 --> 00:03:59,380
+literal strings and parameters.
+
+86
+00:03:57,610 --> 00:04:00,970
+If you've gone through
+
+87
+00:03:59,380 --> 00:04:03,280
+the theory section you know that it's
+
+88
+00:04:00,970 --> 00:04:05,050
+just a standard resource ID, so why
+
+89
+00:04:03,280 --> 00:04:07,000
+it's not using resourceId() to generate that,
+
+90
+00:04:05,050 --> 00:04:08,050
+I don't know.  Essentially we're
+
+91
+00:04:07,000 --> 00:04:10,000
+going to get rid of that whole tag.
+
+92
+00:04:08,050 --> 00:04:12,160
+
+
+93
+00:04:10,000 --> 00:04:14,500
+We have just got the standard
+
+94
+00:04:12,160 --> 00:04:17,340
+dependency at that point so should see
+
+95
+00:04:14,500 --> 00:04:19,810
+now that the serverFarmResourceGroup
+
+96
+00:04:17,340 --> 00:04:22,270
+isn't really doing much for us.
+
+97
+00:04:19,810 --> 00:04:24,070
+So serverFarmId again
+
+98
+00:04:22,270 --> 00:04:26,080
+we've got this concat here for that too,
+
+99
+00:04:24,070 --> 00:04:28,900
+we're going to change that
+
+100
+00:04:26,080 --> 00:04:31,389
+into a more standard function which is
+
+101
+00:04:28,900 --> 00:04:33,250
+resourceId() but let's do that using a
+
+102
+00:04:31,389 --> 00:04:38,169
+variable. Add in our variable
+
+103
+00:04:33,250 --> 00:04:40,750
+section and then we can have serverFarmId
+
+104
+00:04:38,169 --> 00:04:46,680
+- or as I'm going to put it in, webAppPlanId
+
+105
+00:04:40,750 --> 00:04:51,340
+- and we're going to have that
+
+106
+00:04:46,680 --> 00:04:52,930
+based on resourceId(). This is a
+
+107
+00:04:51,340 --> 00:04:54,460
+function you'll be using quite a lot.
+
+108
+00:04:52,930 --> 00:04:55,990
+It's good for generating the resource IDs.
+
+109
+00:04:54,460 --> 00:04:57,550
+It doesn't need to have that
+
+110
+00:04:55,990 --> 00:04:59,530
+existing resource to be able to generate it,
+
+111
+00:04:57,550 --> 00:05:01,449
+it's essentially generating a string value
+
+112
+00:04:59,530 --> 00:05:03,009
+If you hover over it you can
+
+113
+00:05:01,449 --> 00:05:05,169
+see it takes four arguments but you only usually
+
+114
+00:05:03,009 --> 00:05:06,340
+need two.  You need to name the resourceType and
+
+115
+00:05:05,169 --> 00:05:09,460
+the name of the resource we're going to
+
+116
+00:05:06,340 --> 00:05:11,110
+be generating or linking to. If you don't
+
+117
+00:05:09,460 --> 00:05:12,940
+specify the subscriptionID or the
+
+118
+00:05:11,110 --> 00:05:15,099
+resourceGroup name then it's just going
+
+119
+00:05:12,940 --> 00:05:16,150
+to assume that it's the subscriptionId for
+
+120
+00:05:15,099 --> 00:05:18,370
+the resource group you're 
+
+121
+00:05:16,150 --> 00:05:20,050
+submitting into, likewise the
+
+122
+00:05:18,370 --> 00:05:21,400
+resource group name, if you've not
+
+123
+00:05:20,050 --> 00:05:24,280
+specified that either. It does give you
+
+124
+00:05:21,400 --> 00:05:26,830
+the flexibility to generate resource IDs
+
+125
+00:05:24,280 --> 00:05:30,159
+for resources sitting in other resource
+
+126
+00:05:26,830 --> 00:05:31,750
+groups or in other subscriptions.
+
+127
+00:05:30,159 --> 00:05:36,360
+We're just going to create
+
+128
+00:05:31,750 --> 00:05:36,360
+one using the hostingPlanName.
+
+129
+00:05:37,860 --> 00:05:44,590
+Taking 'Microsoft.Web/serverfarms', so
+
+130
+00:05:43,090 --> 00:05:46,300
+that'll be our first string literal and
+
+131
+00:05:44,590 --> 00:05:47,830
+then the second we're going to be
+
+132
+00:05:46,300 --> 00:05:51,430
+putting in is going to be the resource
+
+133
+00:05:47,830 --> 00:05:54,219
+name itself. This will be a variable
+
+134
+00:05:51,430 --> 00:05:59,949
+which doesn't yet exist, which I'm going
+
+135
+00:05:54,219 --> 00:06:01,360
+to be calling webAppPlan.
+
+136
+00:05:59,949 --> 00:06:03,190
+
+
+137
+00:06:01,360 --> 00:06:04,569
+
+
+138
+00:06:03,190 --> 00:06:07,539
+
+
+139
+00:06:04,569 --> 00:06:09,069
+
+
+140
+00:06:07,539 --> 00:06:12,819
+
+
+141
+00:06:09,069 --> 00:06:16,300
+
+
+142
+00:06:12,819 --> 00:06:17,770
+We'll start creating some additional variables
+
+143
+00:06:16,300 --> 00:06:21,759
+just to make life a little bit simpler.
+
+144
+00:06:17,770 --> 00:06:24,279
+One of those is going to be our webAppPlan,
+
+145
+00:06:21,759 --> 00:06:32,110
+so our webAppPlan is going to
+
+146
+00:06:24,279 --> 00:06:36,279
+be a concat of our  
+
+147
+00:06:32,110 --> 00:06:40,509
+parameters('webAppName')
+
+148
+00:06:36,279 --> 00:06:43,089
+and then I'm going to suffix onto 
+
+149
+00:06:40,509 --> 00:06:47,439
+that with '-plan' so then we only
+
+150
+00:06:43,089 --> 00:06:50,349
+specify the 
+
+151
+00:06:47,439 --> 00:06:52,359
+webapp name and it
+
+152
+00:06:50,349 --> 00:06:57,039
+is automatically going to generate
+
+153
+00:06:52,359 --> 00:07:02,919
+that for us.
+
+154
+00:06:57,039 --> 00:07:05,589
+This will become webAppName up here instead.
+
+155
+00:07:02,919 --> 00:07:07,089
+We're not going to have 
+
+156
+00:07:05,589 --> 00:07:09,399
+hostingPlanName or hostingEnvironment 
+
+157
+00:07:07,089 --> 00:07:11,979
+or serverFarmResourceGroup
+
+158
+00:07:09,399 --> 00:07:13,569
+or subscriptionId so I'm
+
+159
+00:07:11,979 --> 00:07:15,099
+going to take all those out and that will
+
+160
+00:07:13,569 --> 00:07:18,849
+enable us to highlight where they're
+
+161
+00:07:15,099 --> 00:07:22,299
+not being used properly so the name for
+
+162
+00:07:18,849 --> 00:07:27,099
+our web app should now be webAppName.
+
+163
+00:07:22,299 --> 00:07:30,639
+Name is a terrible parameter to
+
+164
+00:07:27,099 --> 00:07:33,819
+use if you are submitting using AzureRM
+
+165
+00:07:30,639 --> 00:07:35,379
+cmdlets. One of the things
+
+166
+00:07:33,819 --> 00:07:37,629
+PowerShell does is it automatically
+
+167
+00:07:35,379 --> 00:07:39,789
+generates new switches based on your
+
+168
+00:07:37,629 --> 00:07:41,349
+parameters, so if you have one called
+
+169
+00:07:39,789 --> 00:07:42,879
+webAppName then it's going to create 
+
+170
+00:07:41,349 --> 00:07:43,989
+-webAppName then you specify the
+
+171
+00:07:42,879 --> 00:07:46,269
+argument for that to be the name that
+
+172
+00:07:43,989 --> 00:07:47,559
+you want. If you have one called name
+
+173
+00:07:46,269 --> 00:07:48,999
+it's going to error because that
+
+174
+00:07:47,559 --> 00:07:50,349
+conflicts with -name which has already
+
+175
+00:07:48,999 --> 00:07:52,929
+been used for the name for the
+
+176
+00:07:50,349 --> 00:07:54,429
+deployment job. Why it's generating
+
+177
+00:07:52,929 --> 00:07:57,159
+the template with a "name" parameter is a good question.
+
+178
+00:07:54,429 --> 00:07:57,689
+I'm going to put webAppName in at that point.
+
+179
+00:07:57,159 --> 00:08:01,029
+
+
+180
+00:07:57,689 --> 00:08:02,860
+This serverFarmId, we no longer need it
+
+181
+00:08:01,029 --> 00:08:04,739
+in that format, so I'm going to get rid of
+
+182
+00:08:02,860 --> 00:08:08,799
+that. We should just be able to
+
+183
+00:08:04,739 --> 00:08:13,619
+specify our new variable which is
+
+184
+00:08:08,799 --> 00:08:15,819
+webAppPlanId. Close that off.
+
+185
+00:08:13,619 --> 00:08:18,189
+The hostingEnvironment as we saw earlier
+
+186
+00:08:15,819 --> 00:08:19,389
+was blank so we don't need to specify
+
+187
+00:08:18,189 --> 00:08:21,939
+anything for that.
+
+188
+00:08:19,389 --> 00:08:24,669
+So hostingEnvironment here is a blank
+
+189
+00:08:21,939 --> 00:08:28,749
+value so I'm just going to take that
+
+190
+00:08:24,669 --> 00:08:29,739
+back to being an empty string again.
+
+191
+00:08:28,749 --> 00:08:33,039
+I don't believe that's being used for
+
+192
+00:08:29,739 --> 00:08:34,300
+anything anyway. (Only used for Isolated ASEs.)
+
+193
+00:08:33,039 --> 00:08:36,519
+Save that. We're dependent on
+
+194
+00:08:34,300 --> 00:08:43,899
+parameters('hostingPlanName') which is
+
+195
+00:08:36,519 --> 00:08:48,269
+now instead a variable, 
+
+196
+00:08:43,899 --> 00:08:48,269
+and the variable is webAppPlan.
+
+197
+00:08:48,709 --> 00:08:53,970
+Finish off the concat. So that's sorted out
+
+198
+00:08:51,509 --> 00:08:58,050
+that resource. Again for the hostingPlanName,
+
+199
+00:08:53,970 --> 00:09:00,930
+this is now our variables('webAppPlan').
+
+200
+00:08:58,050 --> 00:09:03,029
+Again we can use the multiple
+
+201
+00:09:00,930 --> 00:09:05,550
+select for this. If I want to
+
+202
+00:09:03,029 --> 00:09:08,819
+get that whole thing removed then I can
+
+203
+00:09:05,550 --> 00:09:15,360
+do CTRL+F2, delete that and then we put
+
+204
+00:09:08,819 --> 00:09:19,350
+in variables and then select 'webAppPlan'
+
+205
+00:09:15,360 --> 00:09:21,089
+and then that's gone in instead.
+
+206
+00:09:19,350 --> 00:09:22,410
+We've got our webAppPlan which is
+
+207
+00:09:21,089 --> 00:09:24,899
+being a bit more hard-coded into what
+
+208
+00:09:22,410 --> 00:09:26,389
+size it's going to be but the location
+
+209
+00:09:24,899 --> 00:09:30,300
+is now based off the resource group and
+
+210
+00:09:26,389 --> 00:09:31,949
+then we have our web app itself which is
+
+211
+00:09:30,300 --> 00:09:34,410
+dependent on that web app plan
+
+212
+00:09:31,949 --> 00:09:36,360
+implicitly.  We've also got
+
+213
+00:09:34,410 --> 00:09:38,730
+an explicit dependency at this
+
+214
+00:09:36,360 --> 00:09:40,769
+level - this could be using that same
+
+215
+00:09:38,730 --> 00:09:44,990
+web app plan ID that - let's be consistent
+
+216
+00:09:40,769 --> 00:09:44,990
+do just that  - rather than just the name.
+
+217
+00:09:49,009 --> 00:09:54,899
+Just put that resourceId in there.
+
+218
+00:09:52,069 --> 00:09:58,110
+That's a much tidier shorter
+
+219
+00:09:54,899 --> 00:10:00,600
+template. 
+
+220
+00:09:58,110 --> 00:10:04,649
+Save that. First check
+
+221
+00:10:00,600 --> 00:10:07,980
+we've got no issues. There we've got one.
+
+222
+00:10:04,649 --> 00:10:11,100
+There, where I have not closed off the
+
+223
+00:10:07,980 --> 00:10:13,259
+second brace. So that's then gone. 
+
+224
+00:10:11,100 --> 00:10:15,269
+Save that. If I look at the parameters file
+
+225
+00:10:13,259 --> 00:10:16,920
+then we've got a whole host of parameters
+
+226
+00:10:15,269 --> 00:10:21,449
+in here which we're no longer using, so we
+
+227
+00:10:16,920 --> 00:10:23,910
+can get shot of all of those. 
+
+228
+00:10:21,449 --> 00:10:25,920
+This one is now changed in terms of the
+
+229
+00:10:23,910 --> 00:10:29,639
+"name", of course. This is now our 
+
+230
+00:10:25,920 --> 00:10:32,429
+"webAppName" so that should be consistent
+
+231
+00:10:29,639 --> 00:10:34,230
+with what's being expected by the
+
+232
+00:10:32,429 --> 00:10:36,089
+template itself, so that's declared that it
+
+233
+00:10:34,230 --> 00:10:38,939
+needs a webAppName. 
+
+234
+00:10:36,089 --> 00:10:41,579
+Better if I could spell my own name...
+
+235
+00:10:38,939 --> 00:10:43,439
+And that's what it's going
+
+236
+00:10:41,579 --> 00:10:45,769
+to create.  so now I've got a template
+
+237
+00:10:43,439 --> 00:10:45,769
+and parameter file we can use.
+
