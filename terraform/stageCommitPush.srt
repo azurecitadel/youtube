@@ -1,0 +1,228 @@
+1
+00:00:00,140 --> 00:00:04,620
+You now have the repository open.
+
+2
+00:00:03,090 --> 00:00:07,440
+We're going to make a small change to this README
+
+3
+00:00:04,620 --> 00:00:09,389
+file and push it back up to the GitHub
+
+4
+00:00:07,440 --> 00:00:11,179
+repository, just to prove that the
+
+5
+00:00:09,389 --> 00:00:13,469
+vscode integration is working correctly.
+
+6
+00:00:11,179 --> 00:00:14,969
+I've clicked on the name of the file in
+
+7
+00:00:13,469 --> 00:00:16,890
+the left hand side, in the Explorer, and
+
+8
+00:00:14,969 --> 00:00:22,640
+we'll add a little bit of text into it.
+
+9
+00:00:16,890 --> 00:00:30,150
+"Lab files for <https://aka.ms/citadel/terraform> workshop."
+
+10
+00:00:22,640 --> 00:00:32,340
+This is the link to the Citadel Terraform workshop.
+
+11
+00:00:30,150 --> 00:00:33,480
+Make that change and save it. You've
+
+12
+00:00:32,340 --> 00:00:35,850
+got the round dot here to show there are
+
+13
+00:00:33,480 --> 00:00:37,829
+unsaved changes. CTRL+S saves.
+
+14
+00:00:35,850 --> 00:00:39,809
+At that point
+
+15
+00:00:37,829 --> 00:00:41,070
+the Git symbol on the left hand side
+
+16
+00:00:39,809 --> 00:00:43,140
+should now show there's one file
+
+17
+00:00:41,070 --> 00:00:44,399
+file which has got changes. That's
+
+18
+00:00:43,140 --> 00:00:46,020
+the pending change. If I click on that
+
+19
+00:00:44,399 --> 00:00:47,309
+you can see we've got "SOURCE CONTROL: GIT"
+
+20
+00:00:46,020 --> 00:00:51,300
+which means it's found the Git
+
+21
+00:00:47,309 --> 00:00:53,219
+executable in the operating system path.
+
+22
+00:00:51,300 --> 00:00:54,899
+That's really key for those of you
+
+23
+00:00:53,219 --> 00:00:57,000
+using Windows 10 with the Windows Subsystem
+
+24
+00:00:54,899 --> 00:00:58,829
+for Linux. Installing git into the
+
+25
+00:00:57,000 --> 00:01:01,199
+Windows Subsystem is a good thing to
+
+26
+00:00:58,829 --> 00:01:02,969
+do, but it's the git installed at the
+
+27
+00:01:01,199 --> 00:01:05,220
+operating system level which is required,
+
+28
+00:01:02,969 --> 00:01:07,740
+so it needs to be in Windows system
+
+29
+00:01:05,220 --> 00:01:09,390
+path.
+
+30
+00:01:07,740 --> 00:01:11,670
+If I hover over the file name we can be
+
+31
+00:01:09,390 --> 00:01:14,220
+selective as to which changes we stage.
+
+32
+00:01:11,670 --> 00:01:15,540
+The process is two step. Stage files, then commit
+
+33
+00:01:14,220 --> 00:01:17,640
+files, which puts them into the local
+
+34
+00:01:15,540 --> 00:01:21,180
+repository. We can then push the commit up
+
+35
+00:01:17,640 --> 00:01:22,590
+to the main repository over in GitHub.
+
+36
+00:01:21,180 --> 00:01:24,509
+I'm just going to click on the `+` to
+
+37
+00:01:22,590 --> 00:01:26,400
+stage the change. It moves from 
+
+38
+00:01:24,509 --> 00:01:28,590
+"Changes" through into "Staged Changes".
+
+39
+00:01:26,400 --> 00:01:30,810
+When we commit we
+
+40
+00:01:28,590 --> 00:01:34,040
+always have to have a message. I'm
+
+41
+00:01:30,810 --> 00:01:38,490
+just going to enter "Updated readme file".
+
+42
+00:01:34,040 --> 00:01:40,920
+Click on the tick to commit.
+
+43
+00:01:38,490 --> 00:01:42,329
+That has placed it locally into the
+
+44
+00:01:40,920 --> 00:01:44,729
+repository. You can see down in the status 
+
+45
+00:01:42,329 --> 00:01:46,710
+bar that it's now showing there's one
+
+46
+00:01:44,729 --> 00:01:48,450
+commit which needs to be pushed up to the 
+
+47
+00:01:46,710 --> 00:01:51,630
+GitHub repo. I can click on the sync icon in the
+
+48
+00:01:48,450 --> 00:01:56,159
+status bar or on the ellipsis (...) 
+
+49
+00:01:51,630 --> 00:01:58,770
+and then do the "push". 
+
+50
+00:01:56,159 --> 00:02:01,110
+The sync symbol will rotate round and
+
+51
+00:01:58,770 --> 00:02:04,560
+it'll take a couple of seconds to
+
+52
+00:02:01,110 --> 00:02:07,380
+replicate and now you're commit has been
+
+53
+00:02:04,560 --> 00:02:09,840
+pushed up. So now if you were to go back
+
+54
+00:02:07,380 --> 00:02:11,900
+into your GitHub repository, so go back
+
+55
+00:02:09,840 --> 00:02:13,220
+to your browser and go into the repo.
+
+56
+00:02:11,900 --> 00:02:16,180
+Refresh the README page and
+
+57
+00:02:13,220 --> 00:02:16,180
+you should see the change.
+
