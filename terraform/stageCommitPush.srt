@@ -204,7 +204,7 @@ it'll take a couple of seconds to
 
 52
 00:02:01,110 --> 00:02:07,380
-replicate and now you're commit has been
+replicate and now your commit has been
 
 53
 00:02:04,560 --> 00:02:09,840
@@ -212,15 +212,15 @@ pushed up. So now if you were to go back
 
 54
 00:02:07,380 --> 00:02:11,900
-into your GitHub repository, so go back
+into your GitHub repository - go back
 
 55
 00:02:09,840 --> 00:02:13,220
-to your browser and go into the repo.
+to your browser and go into the repo -
 
 56
 00:02:11,900 --> 00:02:16,180
-Refresh the README page and
+and refresh the README page then
 
 57
 00:02:13,220 --> 00:02:16,180
